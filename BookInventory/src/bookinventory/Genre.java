@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * @author Brydon Parsons
  */
 package bookinventory;
 
@@ -11,5 +9,7 @@ package bookinventory;
  */
 public enum Genre{
     FANTASY, FICTION, NONFICTION, MYSTERY, SCIFI, THRILLER, HORROR, HISTORICAL,
-    BIOGRAPHY, MANGA, ROMANCE, YOUNGADULT, WESTERN
+    BIOGRAPHY, MANGA, ROMANCE, YOUNG_ADULT, WESTERN, COMPUTER_SCIENCE, DATA_SCIENCE,
+    ECONOMICS, HISTORY, MATHEMATICS, PHILOSIPHY, PSYCOLOGY, SCIENCE,
+    SIGNAL_PROCESSING
 }
