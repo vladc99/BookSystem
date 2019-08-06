@@ -1,187 +1,121 @@
-Title,Last Name,First Name,Genre,ISBN
-Fundamentals of Wavelets,Goswami, Jaideva,signal_processing,978-1-891830-75-4
-Data Smart,Foreman, John,data_science,978-1-60309-050-6
-God Created the Integers,Hawking, Stephen,mathematics,978-1-891830-71-6
-Superfreakonomics,Dubner, Stephen,economics,978-1-60309-025-4
-Orientalism,Said, Edward,history,978-1-60309-047-6
-"Nature of Statistical Learning Theory, The",Vapnik, Vladimir,data_science,978-1-60309-322-4
-Integration of the Indian States,Menon, V P,history,978-1-891830-85-3
-"Drunkard's Walk, The",Mlodinow, Leonard,science,978-1-60309-016-2
-Image Processing & Mathematical Morphology,Shih, Frank,signal_processing,978-1-60309-265-4
-How to Think Like Sherlock Holmes,Konnikova, Maria,psychology,978-1-60309-077-3
-Data Scientists at Work,Gutierrez,Sebastian,data_science,978-1-60309-369-9
-Slaughterhouse Five,Vonnegut,Kurt,fiction,978-1-60309-069-8
-Birth of a Theorem,Villani, Cedric,mathematics,978-1-60309-042-1
-Structure & Interpretation of Computer Programs,Sussman, Gerald,computer_science,978-1-60309-026-1
-"Age of Wrath, The",Eraly, Abraham,history,978-1-60309-380-4
-"Trial, The",Kafka, Frank,fiction,978-1-60309-027-8
-Statistical Decision Theory',Pratt, John,data_science,978-1-60309-405-4
-Data Mining Handbook,Nisbet, Robert,data_science,978-1-891830-37-2
-"New Machiavelli, The",Wells, H. G.,fiction,978-1-60309-029-2
-Physics & Philosophy,Heisenberg, Werner,science,978-1-891830-40-2
-Making Software,Oram, Andy,computer_science,978-1-60309-442-9
-"Analysis, Vol I",Tao, Terence,mathematics,978-1-891830-56-3
-Machine Learning for Hackers,Conway, Drew,data_science,978-1-60309-273-9
-"Signal and the Noise, The",Silver, Nate,data_science,978-1-60309-432-0
-Python for Data Analysis,McKinney, Wes,data_science,978-1-60309-063-6
-Introduction to Algorithms,Cormen, Thomas,computer_science,978-1-60309-420-7
-"Beautiful and the Damned, The",Deb, Siddhartha,nonfiction,978-1-60309-449-8
-"Outsider, The",Camus, Albert,fiction,978-1-891830-19-8
-"Complete Sherlock Holmes, The - Vol I",Doyle, Arthur Conan,fiction,978-0-9858751-3-8
-"Complete Sherlock Holmes, The - Vol II",Doyle, Arthur Conan,fiction,978-1-60309-422-1
-"Wealth of Nations, The",Smith, Adam,economics,978-1-936561-69-8
-"Pillars of the Earth, The",Follett, Ken,fiction,978-1-60309-382-8
-Mein Kampf,Hitler, Adolf,nonfiction,978-1-60309-425-2
-"Tao of Physics, The",Capra, Fritjof,science,978-0-9713597-6-5
-Surely You're Joking Mr Feynman,Feynman, Richard,science,978-1-60309-427-6
-"Farewell to Arms, A",Hemingway, Ernest,fiction,978-1-60309-428-3
-"Veteran, The",Forsyth, Frederick,fiction,978-1-60309-100-8
-False Impressions,Archer, Jeffery,fiction,978-1-891830-81-5
-"Last Lecture, The",Pausch, Randy,nonfiction,978-1-60309-271-5
-Return of the Primitive,Rand, Ayn,philosophy,978-1-891830-12-9
-Jurassic Park,Crichton, Michael,fiction,978-1-891830-92-1
-"Russian Journal, A",Steinbeck, John,nonfiction,978-1-60309-012-4
-Tales of Mystery and Imagination,Poe, Edgar Allen,fiction,978-1-60309-057-5
-Freakonomics,Dubner, Stephen,economics,978-1-60309-085-8
-"Hidden Connections, The",Capra, Fritjof,science,978-1-60309-387-3
-"Story of Philosophy, The",Durant, Will,philosophy,978-1-60309-038-4
-Asami Asami,Deshpande, P L,fiction,978-1-891830-77-8
-Journal of a Novel,Steinbeck, John,fiction,978-1-60309-036-0
-Once There Was a War,Steinbeck, John,nonfiction,978-1-60309-375-0
-"Moon is Down, The",Steinbeck, John,fiction,978-1-60309-053-7
-"Brethren, The",Grisham, John,fiction,978-1-891830-97-6
-In a Free State,Naipaul, V. S.,fiction,978-0-9585783-4-9
-Catch 22,Heller, Joseph,fiction,978-1-60309-397-2
-"Complete Mastermind, The",BBC,,nonfiction,978-1-60309-344-6
-Dylan on Dylan,Dylan, Bob,nonfiction,978-1-60309-080-3
-Soft Computing & Intelligent Systems,Gupta, Madan,data_science,978-1-60309-438-2
-Textbook of Economic Theory,Stonier, Alfred,economics,978-1-60309-386-6
-Econometric Analysis,Greene, W. H.,economics,978-1-60309-098-8
-Learning OpenCV,Bradsky, Gary,data_science,978-1-60309-431-3
-Data Structures Using C & C++,Tanenbaum, Andrew,computer_science,978-1-60309-301-9
-"Computer Vision, A Modern Approach",Forsyth, David,data_science,978-1-60309-407-8
-Principles of Communication Systems,Taub, Schilling,computer_science,978-1-60309-051-3
-Let Us C,Kanetkar, Yashwant,computer_science,978-1-891830-02-0
-"Amulet of Samarkand, The",Stroud, Jonathan,fiction,978-1-891830-25-9
-Crime and Punishment,Dostoevsky, Fyodor,fiction,978-1-60309-030-8
-Angels & Demons,Brown, Dan,fiction,978-1-60309-008-7
-"Argumentative Indian, The",Sen, Amartya,nonfiction,978-1-60309-441-2
-Sea of Poppies,Ghosh, Amitav,fiction,978-1-60309-429-0
-"Idea of Justice, The",Sen, Amartya,nonfiction,978-1-60309-412-2
-"Raisin in the Sun, A",Hansberry, Lorraine,fiction,978-1-60309-024-7
-All the President's Men,Woodward, Bob,history,978-1-891830-17-4
-"Prisoner of Birth, A",Archer, Jeffery,fiction,978-1-891830-55-6
-Scoop!,Nayar, Kuldip,history,978-1-60309-086-5
-Ahe Manohar Tari,Deshpande, Sunita,nonfiction,978-1-60309-419-1
-"Last Mughal, The",Dalrymple, William,history,978-1-891830-86-0
-"Social Choice & Welfare, Vol 39 No. 1",Various,,economics,978-1-891830-91-4
-Radiowaril Bhashane & Shrutika,Deshpande, P L,nonfiction,978-1-60309-067-4
-Gun Gayin Awadi,Deshpande, P L,nonfiction,978-1-60309-348-4
-Aghal Paghal,Deshpande, P L,nonfiction,978-1-891830-83-9
-Maqta-e-Ghalib,Garg, Sanjay,fiction,978-1-60309-388-0
-Manasa,Kale, V P,nonfiction,978-1-60309-013-1
-India from Midnight to Milennium,Tharoor, Shashi,history,978-1-60309-015-5
-"Great Indian Novel, The",Tharoor, Shashi,fiction,978-1-60309-059-9
-O Jerusalem!,Lapierre, Dominique,history,978-1-60309-084-1
-"City of Joy, The",Lapierre, Dominique,fiction,978-1-60309-384-2
-Freedom at Midnight,Lapierre, Dominique,history,978-1-60309-435-1
-"Winter of Our Discontent, The",Steinbeck, John,fiction,978-1-60309-443-6
-On Education,Russell, Bertrand,philosophy,978-1-60309-385-9
-Free Will,Harris, Sam,philosophy,978-1-891830-99-0
-Bookless in Baghdad,Tharoor, Shashi,nonfiction,978-1-891830-65-5
-"Case of the Lame Canary, The",Gardner, Earle Stanley,fiction,978-0-9905208-0-1
-"Theory of Everything, The",Hawking, Stephen,science,978-1-891830-90-7
-New Markets & Other Essays,Drucker, Peter,economics,978-1-60309-010-0
-Electric Universe,Bodanis, David,science,978-1-60309-062-9
-"Hunchback of Notre Dame, The",Hugo, Victor,fiction,978-1-60309-403-0
-Burning Bright,Steinbeck, John,fiction,978-1-60309-000-1
-"Age of Discontuinity, The",Drucker, Peter,economics,978-1-60309-006-3
-Doctor in the Nude,Gordon, Richard,fiction,978-1-60309-007-0
-Down and Out in Paris & London,Orwell, George,nonfiction,978-1-60309-437-5
-Identity & Violence,Sen, Amartya,philosophy,978-1-60309-329-3
-Beyond the Three Seas,Dalrymple, William,history,978-1-60309-354-5
-Talking Straight,Iacoca, Lee,nonfiction,978-1-60309-070-4
-"Maugham's Collected Short Stories, Vol 3",Maugham, William S,fiction,978-1-63140-984-4
-"Phantom of Manhattan, The",Forsyth, Frederick,fiction,978-1-891830-69-3
-Ashenden of The British Agent,Maugham, William S,fiction,978-1-60309-434-4
-Zen & The Art of Motorcycle Maintenance,Pirsig, Robert,philosophy,978-1-60309-154-1
-"Great War for Civilization, The",Fisk, Robert,history,978-1-60309-436-8
-We the Living,Rand, Ayn,fiction,978-1-60309-393-4
-"Artist and the Mathematician, The",Aczel, Amir,science,978-1-60309-152-7
-History of Western Philosophy,Russell, Bertrand,philosophy,978-1-60309-009-4
-Rationality & Freedom,Sen, Amartya,economics,978-1-60309-072-8
-Clash of Civilizations and Remaking of the World Order,Huntington, Samuel,history,978-1-891830-33-4
-Uncommon Wisdom,Capra, Fritjof,nonfiction,978-1-60309-395-8
-One,Bach, Richard,nonfiction,978-1-60309-300-2
-To Sir With Love,Braithwaite,,fiction,978-1-60309-383-5
-Half A Life,Naipaul, V S,fiction,978-1-60309-400-9
-"Discovery of India, The",Nehru, Jawaharlal,history,978-1-60309-408-5
-Apulki,Deshpande, P L,nonfiction,978-1-60309-402-3
-Unpopular Essays,Russell, Bertrand,philosophy,978-1-60309-396-5
-"Deceiver, The",Forsyth, Frederick,fiction,978-1-60309-266-1
-Veil: Secret Wars of the CIA,Woodward, Bob,history,978-1-60309-423-8
-Char Shabda,Deshpande, P L,nonfiction,978-1-891830-45-7
-Rosy is My Relative,Durrell, Gerald,fiction,978-1-891830-36-5
-"Moon and Sixpence, The",Maugham, William S,fiction,978-1-60309-075-9
-"Short History of the World, A",Wells, H G,history,978-1-60309-370-5
-"Trembling of a Leaf, The",Maugham, William S,fiction,978-1-60309-359-0
-Doctor on the Brain,Gordon, Richard,fiction,978-1-60309-049-0
-Simpsons & Their Mathematical Secrets,Singh, Simon,science,978-1-60309-409-2
-Pattern Classification,Duda, Hart,data_science,978-1-60309-381-1
-From Beirut to Jerusalem,Friedman, Thomas,history,978-1-60309-274-6
-"Code Book, The",Singh, Simon,science,978-1-60309-355-2
-"Age of the Warrior, The",Fisk, Robert,history,978-1-60309-320-0
-"Numbers Behind Numb3rs, The",Devlin, Keith,science,978-1-60309-367-5
-"Life in Letters, A",Steinbeck, John,nonfiction,978-1-60309-410-8
-"Information, The",Gleick, James,science,978-1-60309-445-0
-Power Electronics - Rashid,Rashid, Muhammad,computer_science,978-1-891830-50-1
-Power Electronics - Mohan,Mohan, Ned,computer_science,978-1-60309-054-4
-Neural Networks,Haykin, Simon,data_science,978-0-692-24618-4
-"Grapes of Wrath, The",Steinbeck, John,fiction,978-0-692-90610-1
-Vyakti ani Valli,Deshpande, P L,nonfiction,978-1-60309-020-9
-Statistical Learning Theory,Vapnik, Vladimir,data_science,978-1-60309-031-5
-Empire of the Mughal - The Tainted Throne,Rutherford, Alex,history,978-1-60309-055-1
-Empire of the Mughal - Brothers at War,Rutherford, Alex,history,978-1-891830-96-9
-Empire of the Mughal - Ruler of the World,Rutherford, Alex,history,978-1-60309-043-8
-Empire of the Mughal - The Serpent's Tooth,Rutherford, Alex,history,978-1-60309-418-4
-Empire of the Mughal - Raiders from the North,Rutherford, Alex,history,978-1-60309-052-0
-Mossad,Baz-Zohar, Michael,history,978-1-60309-439-9
-Jim Corbett Omnibus,Corbett, Jim,nonfiction,978-1-60309-411-5
-20000 Leagues Under the Sea,Verne, Jules,fiction,978-1-891830-87-7
-Batatyachi Chal,Deshpande P L,,fiction,978-1-60309-018-6
-Hafasavnuk,Deshpande P L,,fiction,978-1-60309-045-2
-Urlasurla,Deshpande P L,,fiction,978-1-60309-258-6
-Pointers in C,Kanetkar, Yashwant,computer_science,978-1-60309-033-9
-"Cathedral and the Bazaar, The",Raymond, Eric,computer_science,978-1-891830-84-6
-Design with OpAmps,Franco, Sergio,computer_science,978-1-60309-005-6
-Think Complexity,Downey, Allen,data_science,978-1-60309-450-4
-"Devil's Advocate, The",West, Morris,fiction,978-1-891830-31-0
-Ayn Rand Answers,Rand, Ayn,philosophy,978-1-60309-415-3
-Philosophy: Who Needs It,Rand, Ayn,philosophy,978-1-891830-70-9
-Data Analysis with Open Source Tools,Janert, Phillip,data_science,978-0-9801023-6-9
-Broca's Brain,Sagan, Carl,science,978-0-9801023-3-8
-Men of Mathematics,Bell, E T,mathematics,978-0-9801023-1-4
-Oxford book of Modern Science Writing,Dawkins, Richard,science,978-1-891830-98-3
-"Justice, Judiciary and Democracy",Ranjan, Sudhanshu,philosophy,978-1-891830-04-4
-"Arthashastra, The",Kautiyla,,philosophy,978-1-891830-11-2
-We the People,Palkhivala,,philosophy,978-1-891830-32-7
-We the Nation,Palkhivala,,philosophy,978-1-891830-73-0
-"Courtroom Genius, The",Sorabjee,,nonfiction,978-1-60309-061-2
-Dongri to Dubai,Zaidi, Hussain,nonfiction,978-1-60309-058-2
-"History of England, Foundation",Ackroyd, Peter,history,978-1-60309-392-7
-City of Djinns,Dalrymple, William,history,978-1-60309-398-9
-India's Legal System,Nariman,,nonfiction,978-1-60309-074-2
-More Tears to Cry,Sassoon, Jean,fiction,978-1-60309-076-6
-"Ropemaker, The",Dickinson, Peter,fiction,978-1-60309-150-3
-Angels & Demons,Brown, Dan,fiction,978-1-60309-151-0
-"Prince, The",Machiavelli,,philosophy,978-1-60309-371-2
-Eyeless in Gaza,Huxley, Aldous,fiction,978-1-891830-38-9
-Tales of Beedle the Bard,Rowling, J K,fiction,978-1-60309-003-2
-Girl with the Dragon Tattoo,Larsson, Steig,fiction,978-1-60309-035-3
-Girl who kicked the Hornet's Nest,Larsson, Steig,fiction,978-1-60309-424-5
-Girl who played with Fire,Larsson, Steig,fiction,978-1-60309-065-0
-Structure and Randomness,Tao, Terence,mathematics,978-1-60309-014-8
-Image Processing with MATLAB,Eddins, Steve,signal_processing,978-1-60309-440-5
-Animal Farm,Orwell, George,fiction,978-1-60309-366-8
-"Idiot, The",Dostoevsky, Fyodor,fiction,978-1-60309-406-1
-"Christmas Carol, A",Dickens, Charles,fiction,978-1-60309-462-7
+False Impressions,Archer, Jeffery,fiction,978-1-891830-81-5,20,2
+One,Bach, Richard,nonfiction,978-1-60309-300-2,20,3
+Mossad,Baz-Zohar, Michael,history,978-1-60309-439-9,22,5
+Men of Mathematics,Bell, E T,mathematics,978-0-9801023-1-4,27,2
+Electric Universe,Bodanis, David,science,978-1-60309-062-9,28,3
+Learning OpenCV,Bradsky, Gary,data_science,978-1-60309-431-3,25,3
+Angels & Demons,Brown, Dan,fiction,978-1-60309-008-7,32,2
+Angels & Demons,Brown, Dan,fiction,978-1-60309-151-0,23,1
+Uncommon Wisdom,Capra, Fritjof,nonfiction,978-1-60309-395-8,31,4
+Machine Learning for Hackers,Conway, Drew,data_science,978-1-60309-273-9,29,3
+Jim Corbett Omnibus,Corbett, Jim,nonfiction,978-1-60309-411-5,35,1
+Introduction to Algorithms,Cormen, Thomas,computer_science,978-1-60309-420-7,15,1
+Jurassic Park,Crichton, Michael,fiction,978-1-891830-92-1,16,2
+Beyond the Three Seas,Dalrymple, William,history,978-1-60309-354-5,17,2
+City of Djinns,Dalrymple, William,history,978-1-60309-398-9,12,1
+Oxford book of Modern Science Writing,Dawkins, Richard,science,978-1-891830-98-3,15,1
+Asami Asami,Deshpande, P L,fiction,978-1-891830-77-8,23,4
+Ahe Manohar Tari,Deshpande, Sunita,nonfiction,978-1-60309-419-1,17,5
+Radiowaril Bhashane & Shrutika,Deshpande, P L,nonfiction,978-1-60309-067-4,28,1
+Gun Gayin Awadi,Deshpande, P L,nonfiction,978-1-60309-348-4,22,2
+Aghal Paghal,Deshpande, P L,nonfiction,978-1-891830-83-9,27,5
+Apulki,Deshpande, P L,nonfiction,978-1-60309-402-3,32,3
+Char Shabda,Deshpande, P L,nonfiction,978-1-891830-45-7,23,5
+Vyakti ani Valli,Deshpande, P L,nonfiction,978-1-60309-020-9,21,3
+Crime and Punishment,Dostoevsky, Fyodor,fiction,978-1-60309-030-8,31,5
+Think Complexity,Downey, Allen,data_science,978-1-60309-450-4,32,4
+New Markets & Other Essays,Drucker, Peter,economics,978-1-60309-010-0,20,3
+Superfreakonomics,Dubner, Stephen,economics,978-1-60309-025-4,30,4
+Freakonomics,Dubner, Stephen,economics,978-1-60309-085-8,13,5
+Pattern Classification,Duda, Hart,data_science,978-1-60309-381-1,21,1
+Rosy is My Relative,Durrell, Gerald,fiction,978-1-891830-36-5,14,4
+Dylan on Dylan,Dylan, Bob,nonfiction,978-1-60309-080-3,22,5
+Image Processing with MATLAB,Eddins, Steve,signal_processing,978-1-60309-440-5,17,1
+"Age of Wrath, The",Eraly, Abraham,history,978-1-60309-380-4,21,5
+Surely You're Joking Mr Feynman,Feynman, Richard,science,978-1-60309-427-6,22,2
+Data Smart,Foreman, John,data_science,978-1-60309-050-6,30,5
+Design with OpAmps,Franco, Sergio,computer_science,978-1-60309-005-6,13,3
+From Beirut to Jerusalem,Friedman, Thomas,history,978-1-60309-274-6,11,4
+Maqta-e-Ghalib,Garg, Sanjay,fiction,978-1-60309-388-0,23,2
+Sea of Poppies,Ghosh, Amitav,fiction,978-1-60309-429-0,25,2
+Doctor in the Nude,Gordon, Richard,fiction,978-1-60309-007-0,18,4
+Doctor on the Brain,Gordon, Richard,fiction,978-1-60309-049-0,28,4
+Fundamentals of Wavelets,Goswami, Jaideva,signal_processing,978-1-891830-75-4,28,3
+Econometric Analysis,Greene, W. H.,economics,978-1-60309-098-8,25,1
+Soft Computing & Intelligent Systems,Gupta, Madan,data_science,978-1-60309-438-2,29,2
+Data Scientists at Work,Gutierrez,Sebastian,data_science,978-1-60309-369-9,26,2
+Free Will,Harris, Sam,philosophy,978-1-891830-99-0,10,2
+God Created the Integers,Hawking, Stephen,mathematics,978-1-891830-71-6,31,5
+Neural Networks,Haykin, Simon,data_science,978-0-692-24618-4,21,2
+Physics & Philosophy,Heisenberg, Werner,science,978-1-891830-40-2,13,5
+Catch 22,Heller, Joseph,fiction,978-1-60309-397-2,14,2
+Mein Kampf,Hitler, Adolf,nonfiction,978-1-60309-425-2,31,2
+Clash of Civilizations and Remaking of the World Order,Huntington, Samuel,history,978-1-891830-33-4,31,2
+Eyeless in Gaza,Huxley, Aldous,fiction,978-1-891830-38-9,20,4
+Talking Straight,Iacoca, Lee,nonfiction,978-1-60309-070-4,13,3
+Data Analysis with Open Source Tools,Janert, Phillip,data_science,978-0-9801023-6-9,14,5
+Manasa,Kale, V P,nonfiction,978-1-60309-013-1,16,4
+Let Us C,Kanetkar, Yashwant,computer_science,978-1-891830-02-0,22,5
+Pointers in C,Kanetkar, Yashwant,computer_science,978-1-60309-033-9,25,3
+How to Think Like Sherlock Holmes,Konnikova, Maria,psychology,978-1-60309-077-3,34,2
+O Jerusalem!,Lapierre, Dominique,history,978-1-60309-084-1,35,3
+Freedom at Midnight,Lapierre, Dominique,history,978-1-60309-435-1,24,3
+Girl with the Dragon Tattoo,Larsson, Steig,fiction,978-1-60309-035-3,12,2
+Girl who kicked the Hornet's Nest,Larsson, Steig,fiction,978-1-60309-424-5,32,5
+Girl who played with Fire,Larsson, Steig,fiction,978-1-60309-065-0,16,1
+Ashenden of The British Agent,Maugham, William S,fiction,978-1-60309-434-4,35,5
+Python for Data Analysis,McKinney, Wes,data_science,978-1-60309-063-6,33,5
+Integration of the Indian States,Menon, V P,history,978-1-891830-85-3,34,1
+Power Electronics - Mohan,Mohan, Ned,computer_science,978-1-60309-054-4,31,4
+In a Free State,Naipaul, V. S.,fiction,978-0-9585783-4-9,27,4
+Half A Life,Naipaul, V S,fiction,978-1-60309-400-9,28,4
+Scoop!,Nayar, Kuldip,history,978-1-60309-086-5,33,3
+Data Mining Handbook,Nisbet, Robert,data_science,978-1-891830-37-2,11,4
+Making Software,Oram, Andy,computer_science,978-1-60309-442-9,34,2
+Down and Out in Paris & London,Orwell, George,nonfiction,978-1-60309-437-5,27,4
+Animal Farm,Orwell, George,fiction,978-1-60309-366-8,32,5
+"Last Lecture, The",Pausch, Randy,nonfiction,978-1-60309-271-5,26,3
+Zen & The Art of Motorcycle Maintenance,Pirsig, Robert,philosophy,978-1-60309-154-1,21,3
+Tales of Mystery and Imagination,Poe, Edgar Allen,fiction,978-1-60309-057-5,11,4
+Statistical Decision Theory,Pratt, John,data_science,978-1-60309-405-4,29,4
+Return of the Primitive,Rand, Ayn,philosophy,978-1-891830-12-9,12,3
+We the Living,Rand, Ayn,fiction,978-1-60309-393-4,28,1
+Ayn Rand Answers,Rand, Ayn,philosophy,978-1-60309-415-3,33,3
+Philosophy: Who Needs It,Rand, Ayn,philosophy,978-1-891830-70-9,20,1
+"Justice, Judiciary and Democracy",Ranjan, Sudhanshu,philosophy,978-1-891830-04-4,29,2
+Power Electronics - Rashid,Rashid, Muhammad,computer_science,978-1-891830-50-1,12,3
+"Cathedral and the Bazaar, The",Raymond, Eric,computer_science,978-1-891830-84-6,12,5
+Tales of Beedle the Bard,Rowling, J K,fiction,978-1-60309-003-2,16,1
+On Education,Russell, Bertrand,philosophy,978-1-60309-385-9,13,4
+History of Western Philosophy,Russell, Bertrand,philosophy,978-1-60309-009-4,34,4
+Unpopular Essays,Russell, Bertrand,philosophy,978-1-60309-396-5,15,4
+Empire of the Mughal - The Tainted Throne,Rutherford, Alex,history,978-1-60309-055-1,28,3
+Empire of the Mughal - Brothers at War,Rutherford, Alex,history,978-1-891830-96-9,30,5
+Empire of the Mughal - Ruler of the World,Rutherford, Alex,history,978-1-60309-043-8,15,5
+Empire of the Mughal - The Serpent's Tooth,Rutherford, Alex,history,978-1-60309-418-4,34,1
+Empire of the Mughal - Raiders from the North,Rutherford, Alex,history,978-1-60309-052-0,24,3
+Broca's Brain,Sagan, Carl,science,978-0-9801023-3-8,28,3
+Orientalism,Said, Edward,history,978-1-60309-047-6,28,4
+More Tears to Cry,Sassoon, Jean,fiction,978-1-60309-076-6,29,1
+Identity & Violence,Sen, Amartya,philosophy,978-1-60309-329-3,20,3
+Rationality & Freedom,Sen, Amartya,economics,978-1-60309-072-8,28,5
+Image Processing & Mathematical Morphology,Shih, Frank,signal_processing,978-1-60309-265-4,33,4
+Simpsons & Their Mathematical Secrets,Singh, Simon,science,978-1-60309-409-2,14,4
+Journal of a Novel,Steinbeck, John,fiction,978-1-60309-036-0,20,4
+Once There Was a War,Steinbeck, John,nonfiction,978-1-60309-375-0,27,1
+Burning Bright,Steinbeck, John,fiction,978-1-60309-000-1,15,1
+Textbook of Economic Theory,Stonier, Alfred,economics,978-1-60309-386-6,24,3
+Structure & Interpretation of Computer Programs,Sussman, Gerald,computer_science,978-1-60309-026-1,15,2
+Data Structures Using C & C++,Tanenbaum, Andrew,computer_science,978-1-60309-301-9,31,3
+Structure and Randomness,Tao, Terence,mathematics,978-1-60309-014-8,24,1
+Principles of Communication Systems,Taub, Schilling,computer_science,978-1-60309-051-3,15,4
+India from Midnight to Milennium,Tharoor, Shashi,history,978-1-60309-015-5,28,2
+Bookless in Baghdad,Tharoor, Shashi,nonfiction,978-1-891830-65-5,26,4
+Statistical Learning Theory,Vapnik, Vladimir,data_science,978-1-60309-031-5,27,5
+20000 Leagues Under the Sea,Verne, Jules,fiction,978-1-891830-87-7,18,2
+Birth of a Theorem,Villani, Cedric,mathematics,978-1-60309-042-1,30,4
+Slaughterhouse Five,Vonnegut,Kurt,fiction,978-1-60309-069-8,30,3
+"Devil's Advocate, The",West, Morris,fiction,978-1-891830-31-0,16,1
+All the President's Men,Woodward, Bob,history,978-1-891830-17-4,11,1
+Veil: Secret Wars of the CIA,Woodward, Bob,history,978-1-60309-423-8,17,4
+Dongri to Dubai,Zaidi, Hussain,nonfiction,978-1-60309-058-2,12,3
