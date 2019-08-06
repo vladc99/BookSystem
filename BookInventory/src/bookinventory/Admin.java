@@ -17,7 +17,7 @@ public class Admin extends User{
 
     public void addBook(String title, String lastName, String firstName, Genre genre, String ISBN){
         try(
-                PrintWriter output = new PrintWriter(dataFile);){// 
+                PrintWriter output = new PrintWriter(dataFile);){//
             //Code Execution
             output.println(title + " " + lastName + " " + firstName + " " + genre + " " + ISBN);// Info for new book, correct format???
 
@@ -39,7 +39,8 @@ public class Admin extends User{
 
     }
 
+    // This should do a similar seach to the deleteBook,
+    // then just modify the line to increase the numCopies
     public void orderBook(){
-
     }
 }

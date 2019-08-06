@@ -19,16 +19,20 @@ public class Search{
 
         Scanner input = new Scanner(dataFile);
         boolean isFound = false;
+
         while(input.hasNext()){// find way to search by specific location, unsure how we want to handle it
-            if(input.next().matches(searchKey)){
-                // idk do something that returns the whole line of data
+            String temp = input.next();
+            if(temp.equals("Brydon")){
+                System.out.println(input.nextLine());
+
                 isFound = true;
                 System.out.println("Match found!");
                 break; // this should end the outer while loop search???
             }
-
         }
-        System.out.println("Nothing was found!");
+        if(isFound == false){
+            System.out.println("Nothing was found!");
+        }
     }
 
 }
