@@ -9,19 +9,22 @@ package bookinventory;
 
 public class Book{
 
-    private String ISBN;
-    private String lastName;
-    private String firstName;
     private String title;
-    private double numCopies;
-    private double price;
+    private String firstName;
+    private String lastName;
     private Genre genre;
+    private String ISBN;
+    private double price;
+    private double numCopies;
 
-    public Book(String ISBN, String lastName, String title, Genre genre){
-        this.ISBN = ISBN;
-        this.lastName = lastName;
+    public Book(String title, String firstName, String lastName, Genre genre, String ISBN, double price, double numCopies){
         this.title = title;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.genre = genre;
+        this.ISBN = ISBN;
+        this.price = price;
+        this.numCopies = numCopies;
     }
 
     public Book(){

@@ -13,13 +13,14 @@ public class Admin extends User{
     int IDNumber;
     String password;
 
-    File dataFile = new File("data.txt");
+    File dataFile = new File("books.csv");
 
-    public void addBook(String title, String lastName, String firstName, Genre genre, String ISBN){
+    public void addBook(String title, String lastName, String firstName, Genre genre, String ISBN, double price, double numCopies){
         try(
-                PrintWriter output = new PrintWriter(dataFile);){//
+                PrintWriter output = new PrintWriter(dataFile);){
             //Code Execution
-            output.println(title + " " + lastName + " " + firstName + " " + genre + " " + ISBN);// Info for new book, correct format???
+            output.println(title + "," + lastName + "," + firstName + "," + genre + "," + ISBN + "," + price + "," + numCopies);// Info for new book, correct format???
+            BookInventory.data.add(new Book(title, lastName, firstName, genre, ISBN, price, numCopies));
 
         }catch(FileNotFoundException ex){
             System.out.println("Error: " + ex.getMessage());
@@ -27,15 +28,9 @@ public class Admin extends User{
     }
 
     public void deleteBook(){// This should call the search class in someway...
-
     }
 
     public void editBook(){
-        try{
-            Scanner input = new Scanner(dataFile);
-        }catch(FileNotFoundException ex){
-            System.out.println("Error: " + ex.getMessage());// add error data
-        }
 
     }
 
