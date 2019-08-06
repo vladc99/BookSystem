@@ -35,11 +35,11 @@ public class BookInventory{
                 counter++;
             }
         }
-        System.out.println(data.get(0).getTitle());
-        System.out.println(data.get(0).getLastName());
-        System.out.println(data.get(0).getFirstName());
-        System.out.println(data.get(0).getISBN());
-        System.out.println(data.get(0).getNumCopies());
+//        System.out.println(data.get(0).getTitle());
+//        System.out.println(data.get(0).getLastName());
+//        System.out.println(data.get(0).getFirstName());
+//        System.out.println(data.get(0).getISBN());
+//        System.out.println(data.get(0).getNumCopies());
 
     }
 }
