@@ -1,3 +1,6 @@
+/*
+ * @author Brydon Parsons
+ */
 package bookinventory;
 
 import java.io.*;

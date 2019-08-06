@@ -1,3 +1,10 @@
+/*
+
+
+
+ * @author Brydon Parsons
+
+ */
 package bookinventory;
 
 public class Book{
@@ -75,7 +82,5 @@ public class Book{
     public void setGenre(Genre genre){
         this.genre = genre;
     }
-    
-    
 
 }
