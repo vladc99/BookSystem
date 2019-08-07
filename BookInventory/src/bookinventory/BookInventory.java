@@ -14,7 +14,7 @@ public class BookInventory{
 
     public static List<Book> data = new ArrayList<>();
 
-    public static void main(String[] args) throws FileNotFoundException, IOException{
+    public BookInventory() throws IOException{
 
         //import text file into array list of Book objects
         try(BufferedReader br = new BufferedReader(new FileReader("books.csv"))){
@@ -33,14 +33,6 @@ public class BookInventory{
                 counter++;
             }
         }
-
-        Admin admin = new Admin();
-
-//        admin.deleteBook("978-1-891830-81-5");
-//        admin.editBook("978-1-60309-395-8", "ISBN", "978-1-60309-395-10");
-//        admin.addBook("The Story of Brydon", "Parsons", "Brydon", Genre.FANTASY, "123456789-0", 40, 1);
-        System.out.println("Done??????");
-
     }
 
 }
