@@ -19,6 +19,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 /**
@@ -36,12 +38,19 @@ public class Start extends Application {
     }
 
     Stage window;
-    ImageView logo = new ImageView(new Image("file:///D://School//Semester 2//Java 2//Assignment2//BookInventory//BookInventory//src//bookImage.jpg"));
+    ImageView logo = new ImageView(new Image("https://i.imgur.com/OUzMOtx.jpg"));
 
     ComboBox<String> sortBy = new ComboBox();
+    int sortByTemp = 0;
+
     TextField searchBar = new TextField();
 
     Alert a = new Alert(AlertType.NONE);
+
+    int temp = 0; //for the listAll loop
+
+    int pages = (BookInventory.data.size() / 25);
+    int currentPage = 0;
 
     @Override
     public void start(Stage primaryStage) {
@@ -81,15 +90,18 @@ public class Start extends Application {
 
         gridPane.add(logo, 1, 0);
 
+        if(sortByTemp == 0){
         sortBy.getItems().addAll("ISBN", "Last Name", "Title");
         sortBy.setValue("Sort By");
         gridPane.add(sortBy, 0, 1);
+        }
 
         searchBar.setPromptText("Search");
         gridPane.add(searchBar, 1, 1);
 
         Button btSearch = new Button("Search");
         gridPane.add(btSearch, 2, 1);
+        btSearch.setOnAction(e -> search(sortBy.getValue(), searchBar.getText()));
 
         Button btListAll = new Button("List All");
         gridPane.add(btListAll, 1, 2);
@@ -100,20 +112,167 @@ public class Start extends Application {
         window.setScene(firstPageUser);
     }
 
+    public void search(String searchLocation, String searchKey) {
+        Search.searchData(searchKey, searchLocation);
+
+        GridPane gp = new GridPane();
+        gp.setAlignment(Pos.CENTER);
+        gp.setHgap(10);
+        gp.setVgap(5);
+
+        Label isbn = new Label("ISBN");
+        isbn.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        Label lastN = new Label("Last Name");
+        lastN.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        Label title = new Label("Title");
+        title.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        Label genre = new Label("Genre");
+        genre.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        Label price = new Label("Price");
+        price.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        Label noCopies = new Label("No. Copies");
+        noCopies.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        //headers
+        gp.add(isbn, 0, 0);
+        gp.add(lastN, 1, 0);
+        gp.add(title, 2, 0);
+        gp.add(genre, 3, 0);
+        gp.add(price, 4, 0);
+        gp.add(noCopies, 5, 0);
+        
+        for (int i = 0; i < Search.searches.size(); i++) {
+            gp.add(new Label(Search.searches.get(i).getISBN()), 0, 1+i);
+            gp.add(new Label(Search.searches.get(i).getLastName()), 1, 1+i);
+            gp.add(new Label(Search.searches.get(i).getTitle()), 2, 1+i);
+            gp.add(new Label(String.valueOf(Search.searches.get(i).getGenre())), 3, 1+i);
+            gp.add(new Label(String.valueOf(Search.searches.get(i).getPrice())), 4, 1+i);
+            gp.add(new Label(String.valueOf(Search.searches.get(i).getNumCopies())), 5, 1+i);
+        }
+        
+        //make buttons
+        Button[] list = new Button[Search.searches.size()];
+        for(int i = 0; i < Search.searches.size(); i++)
+            list[i] = new Button("Add to Cart");
+        
+        //add buttons to the pane
+        for (int i = 0; i < Search.searches.size(); i++)
+            gp.add(list[i], 6, i+1);
+        
+        for (int i = 0; i < list.length; i++) {
+            list[i].setOnAction(e->addToCart());
+        }
+        
+        Button btBack = new Button("Back");
+        btBack.setMaxSize(90, 10);
+        gp.add(btBack, 2, 2+Search.searches.size());
+        gp.setHalignment(btBack,HPos.CENTER);
+        btBack.setOnAction(e -> guestLogIn());
+
+        Scene scene = new Scene(gp, 900, 300);
+        window.setScene(scene);
+    }
+    public void addToCart(){
+        
+    }
+
     public void listAll() {
         GridPane gp = new GridPane();
+        gp.setAlignment(Pos.CENTER);
+        gp.setHgap(10);
+        gp.setVgap(5);
 
-        gp.add(new Label("ISBN"), 0, 0);
-        gp.add(new Label("Last Name"), 1, 0);
-        gp.add(new Label("Title"), 2, 0);
-        gp.add(new Label("Genre"), 3, 0);
-        gp.add(new Label("Price"), 4, 0);
-        gp.add(new Label("No Copies"), 5, 0);
+        Label isbn = new Label("ISBN");
+        isbn.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
 
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 25; j++) {
-                gp.add(new Label(), i, i);
-            }
+        Label lastN = new Label("Last Name");
+        lastN.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        Label title = new Label("Title");
+        title.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        Label genre = new Label("Genre");
+        genre.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        Label price = new Label("Price");
+        price.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        Label noCopies = new Label("No. Copies");
+        noCopies.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+
+        //headers
+        gp.add(isbn, 0, 0);
+        gp.add(lastN, 1, 0);
+        gp.add(title, 2, 0);
+        gp.add(genre, 3, 0);
+        gp.add(price, 4, 0);
+        gp.add(noCopies, 5, 0);
+
+        int a;
+
+        if ((BookInventory.data.size() - (currentPage * 25)) < 25) {
+            a = BookInventory.data.size() - (currentPage * 25);
+            a += temp;
+        } else {
+            a = 26 + temp;
+        }
+        for (int i = 0 + temp; i < a; i++) {
+            gp.add(new Label(BookInventory.data.get(i).getISBN()), 0, i + 1 - temp);
+            gp.add(new Label(BookInventory.data.get(i).getLastName()), 1, i + 1 - temp);
+            gp.add(new Label(BookInventory.data.get(i).getTitle()), 2, i + 1 - temp);
+            gp.add(new Label(String.valueOf(BookInventory.data.get(i).getGenre())), 3, i + 1 - temp);
+            gp.add(new Label(String.valueOf(BookInventory.data.get(i).getPrice())), 4, i + 1 - temp);
+            gp.add(new Label(String.valueOf(BookInventory.data.get(i).getNumCopies())), 5, i + 1 - temp);
+        }
+
+        Button btBack = new Button("Back");
+        btBack.setMaxSize(50, 10);
+        gp.setHalignment(btBack, HPos.CENTER);
+        gp.add(btBack, 2, 27);
+        btBack.setOnAction(e -> listBackPage());
+
+        Button btNext = new Button("Next");
+        if ((BookInventory.data.size() - a) < 25) {
+
+        }
+        btNext.setMaxSize(50, 10);
+        gp.setHalignment(btNext, HPos.RIGHT);
+        gp.add(btNext, 2, 27);
+        btNext.setOnAction(e -> listNextPage(gp));
+
+        System.out.println(temp);
+        Scene listAll = new Scene(gp, 800, 650);
+        window.setScene(listAll);
+    }
+
+    public void listNextPage(GridPane gp) {
+        gp.getChildren().clear();
+        if (currentPage >= pages) {
+            a.setAlertType(AlertType.ERROR);
+            a.setContentText("No more pages left");
+            a.show();
+            listAll();
+        } else {
+            System.out.println(pages + "Page");
+            currentPage++;
+            temp += 25;
+            listAll();
+        }
+    }
+
+    public void listBackPage() {
+        if (temp == 0) {
+            guestLogIn();
+            currentPage = 0;
+        } else {
+            temp -= 25;
+            currentPage--;
+            listAll();
         }
     }
 
@@ -289,7 +448,7 @@ public class Start extends Application {
 
             Scene scene = new Scene(gridp, 800, 100);
             window.setScene(scene);
-        }catch(Exception e){
+        } catch (Exception e) {
             a.setAlertType(AlertType.ERROR);
             a.setContentText("ISBN not found!");
             a.show();
