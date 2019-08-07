@@ -22,15 +22,9 @@ public class Admin extends User{
     File dataFileTemp = new File("tempbooks.csv");
 
     public void addBook(String title, String lastName, String firstName, Genre genre, String ISBN, double price, double numCopies){
-        try(
-                PrintWriter output = new PrintWriter(dataFile);){
-            //Code Execution
-            output.println(title + "," + lastName + "," + firstName + "," + genre + "," + ISBN + "," + price + "," + numCopies);// Info for new book, correct format???
-            BookInventory.data.add(new Book(title, lastName, firstName, genre, ISBN, price, numCopies));
 
-        }catch(FileNotFoundException ex){
-            System.out.println("Error: " + ex.getMessage());
-        }
+        BookInventory.data.add(new Book(title, lastName, firstName, genre, ISBN, price, numCopies));
+        updateFile();
     }
 
     public void deleteBook(String searchKey){
@@ -118,7 +112,20 @@ public class Admin extends User{
         }else{
             System.out.println("Error: Edit of file wasnt executed properly, check admin file.");
         }
+        updateFile();
+    }
 
+    public void orderBook(int n, String searchKey){
+        Search.searchData(searchKey, "ISBN");
+        for(int i = 0; i < BookInventory.data.size(); i++){
+            if(searchKey.equals(BookInventory.data.get(i).getISBN())){
+                BookInventory.data.get(i).setNumCopies(n);
+            }
+        }
+        updateFile();
+    }
+
+    private void updateFile(){
         try(//Re-Create the file without the line to be deleted
                 //Write wanted data into temp file
                 PrintWriter output = new PrintWriter(dataFileTemp);){
@@ -144,16 +151,6 @@ public class Admin extends User{
             System.out.println("Error: " + ex.getMessage());
 
         }
-    }
 
-// This should do a similar seach to the deleteBook,
-// then just modify the line to increase the numCopies
-    public void orderBook(int n, String searchKey){
-        Search.searchData(searchKey, "ISBN");
-        for(int i = 0; i < BookInventory.data.size(); i++){
-            if(searchKey.equals(BookInventory.data.get(i).getISBN())){
-                BookInventory.data.get(i).setNumCopies(n);
-            }
-        }
     }
 }

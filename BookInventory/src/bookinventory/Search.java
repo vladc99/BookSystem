@@ -44,4 +44,8 @@ public abstract class Search{
             return "No such book exists in our system.";
         }
     }
+
+    public static ArrayList<Book> getSearches(){
+        return searches;
+    }
 }
