@@ -90,10 +90,10 @@ public class Start extends Application {
 
         gridPane.add(logo, 1, 0);
 
-        if(sortByTemp == 0){
-        sortBy.getItems().addAll("ISBN", "Last Name", "Title");
-        sortBy.setValue("Sort By");
-        gridPane.add(sortBy, 0, 1);
+        if (sortByTemp == 0) {
+            sortBy.getItems().addAll("ISBN", "Last Name", "Title");
+            sortBy.setValue("Sort By");
+            gridPane.add(sortBy, 0, 1);
         }
 
         searchBar.setPromptText("Search");
@@ -120,65 +120,57 @@ public class Start extends Application {
         gp.setHgap(10);
         gp.setVgap(5);
 
-        Label isbn = new Label("ISBN");
-        isbn.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+        //The order of the array is: ISBN,Last Name,Title,Genre,Price,Number of Copies
+        Label[] labelList = new Label[6];
 
-        Label lastN = new Label("Last Name");
-        lastN.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+        labelList[0] = new Label("ISBN");
+        labelList[1] = new Label("Last Name");
+        labelList[2] = new Label("Title");
+        labelList[3] = new Label("Genre");
+        labelList[4] = new Label("Price");
+        labelList[5] = new Label("No. Copies");
 
-        Label title = new Label("Title");
-        title.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
-
-        Label genre = new Label("Genre");
-        genre.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
-
-        Label price = new Label("Price");
-        price.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
-
-        Label noCopies = new Label("No. Copies");
-        noCopies.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
-
-        //headers
-        gp.add(isbn, 0, 0);
-        gp.add(lastN, 1, 0);
-        gp.add(title, 2, 0);
-        gp.add(genre, 3, 0);
-        gp.add(price, 4, 0);
-        gp.add(noCopies, 5, 0);
-        
-        for (int i = 0; i < Search.searches.size(); i++) {
-            gp.add(new Label(Search.searches.get(i).getISBN()), 0, 1+i);
-            gp.add(new Label(Search.searches.get(i).getLastName()), 1, 1+i);
-            gp.add(new Label(Search.searches.get(i).getTitle()), 2, 1+i);
-            gp.add(new Label(String.valueOf(Search.searches.get(i).getGenre())), 3, 1+i);
-            gp.add(new Label(String.valueOf(Search.searches.get(i).getPrice())), 4, 1+i);
-            gp.add(new Label(String.valueOf(Search.searches.get(i).getNumCopies())), 5, 1+i);
+        for (int i = 0; i < labelList.length; i++) {
+            labelList[i].setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+            gp.add(labelList[i], i, 0);
         }
-        
+
+        for (int i = 0; i < Search.searches.size(); i++) {
+            gp.add(new Label(Search.searches.get(i).getISBN()), 0, 1 + i);
+            gp.add(new Label(Search.searches.get(i).getLastName()), 1, 1 + i);
+            gp.add(new Label(Search.searches.get(i).getTitle()), 2, 1 + i);
+            gp.add(new Label(String.valueOf(Search.searches.get(i).getGenre())), 3, 1 + i);
+            gp.add(new Label(String.valueOf(Search.searches.get(i).getPrice())), 4, 1 + i);
+            gp.add(new Label(String.valueOf(Search.searches.get(i).getNumCopies())), 5, 1 + i);
+        }
+
         //make buttons
         Button[] list = new Button[Search.searches.size()];
-        for(int i = 0; i < Search.searches.size(); i++)
+        for (int i = 0; i < Search.searches.size(); i++) {
             list[i] = new Button("Add to Cart");
-        
-        //add buttons to the pane
-        for (int i = 0; i < Search.searches.size(); i++)
-            gp.add(list[i], 6, i+1);
-        
-        for (int i = 0; i < list.length; i++) {
-            list[i].setOnAction(e->addToCart());
         }
-        
+
+        //add buttons to the pane
+        for (int i = 0; i < Search.searches.size(); i++) {
+            gp.add(list[i], 6, i + 1);
+        }
+
+        for (int i = 0; i < list.length; i++) {
+            list[i].setOnAction(e -> addToCart());
+        }
+
         Button btBack = new Button("Back");
         btBack.setMaxSize(90, 10);
-        gp.add(btBack, 2, 2+Search.searches.size());
-        gp.setHalignment(btBack,HPos.CENTER);
+        gp.add(btBack, 2, 2 + Search.searches.size());
+        gp.setHalignment(btBack, HPos.CENTER);
         btBack.setOnAction(e -> guestLogIn());
 
         Scene scene = new Scene(gp, 900, 300);
         window.setScene(scene);
     }
-    public void addToCart(){
-        
+
+    public void addToCart() {
+
     }
 
     public void listAll() {
@@ -187,31 +179,20 @@ public class Start extends Application {
         gp.setHgap(10);
         gp.setVgap(5);
 
-        Label isbn = new Label("ISBN");
-        isbn.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+        //The order of the array is: ISBN,Last Name,Title,Genre,Price,Number of Copies
+        Label[] list = new Label[6];
 
-        Label lastN = new Label("Last Name");
-        lastN.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+        list[0] = new Label("ISBN");
+        list[1] = new Label("Last Name");
+        list[2] = new Label("Title");
+        list[3] = new Label("Genre");
+        list[4] = new Label("Price");
+        list[5] = new Label("No. Copies");
 
-        Label title = new Label("Title");
-        title.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
-
-        Label genre = new Label("Genre");
-        genre.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
-
-        Label price = new Label("Price");
-        price.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
-
-        Label noCopies = new Label("No. Copies");
-        noCopies.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
-
-        //headers
-        gp.add(isbn, 0, 0);
-        gp.add(lastN, 1, 0);
-        gp.add(title, 2, 0);
-        gp.add(genre, 3, 0);
-        gp.add(price, 4, 0);
-        gp.add(noCopies, 5, 0);
+        for (int i = 0; i < list.length; i++) {
+            list[i].setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+            gp.add(list[i], i, 0);
+        }
 
         int a;
 
@@ -237,15 +218,12 @@ public class Start extends Application {
         btBack.setOnAction(e -> listBackPage());
 
         Button btNext = new Button("Next");
-        if ((BookInventory.data.size() - a) < 25) {
 
-        }
         btNext.setMaxSize(50, 10);
         gp.setHalignment(btNext, HPos.RIGHT);
         gp.add(btNext, 2, 27);
         btNext.setOnAction(e -> listNextPage(gp));
 
-        System.out.println(temp);
         Scene listAll = new Scene(gp, 800, 650);
         window.setScene(listAll);
     }
@@ -283,45 +261,25 @@ public class Start extends Application {
         GridPane gp = new GridPane();
         gp.setAlignment(Pos.CENTER);
 
-        TextField isbn = new TextField();
-        isbn.setPromptText("ISBN");
-        isbn.setMaxSize(70, 10);
-        gp.add(isbn, 0, 0);
+        //the order of the Array is as follows: ISBN,Title,First Name,Last Name,Genre,Price and number of Copies
+        TextField[] list = new TextField[7];
+        for (int i = 0; i < list.length; i++) {
+            list[i].setMaxSize(70, 10);
+            gp.add(list[i], i, 0);
+        }
 
-        TextField title = new TextField();
-        title.setMaxSize(70, 10);
-        title.setPromptText("Title");
-        gp.add(title, 1, 0);
-
-        TextField firstName = new TextField();
-        firstName.setPromptText("First Name");
-        firstName.setMaxSize(80, 10);
-        gp.add(firstName, 2, 0);
-
-        TextField lastName = new TextField();
-        lastName.setPromptText("Last Name");
-        lastName.setMaxSize(80, 10);
-        gp.add(lastName, 3, 0);
-
-        TextField genre = new TextField();
-        genre.setPromptText("Genre");
-        genre.setMaxSize(70, 10);
-        gp.add(genre, 4, 0);
-
-        TextField price = new TextField();
-        price.setPromptText("Price");
-        price.setMaxSize(70, 10);
-        gp.add(price, 5, 0);
-
-        TextField noCopies = new TextField();
-        noCopies.setPromptText("No. Copies");
-        noCopies.setMaxSize(70, 10);
-        gp.add(noCopies, 6, 0);
+        list[0].setPromptText("ISBN");
+        list[1].setPromptText("Title");
+        list[2].setPromptText("First Name");
+        list[3].setPromptText("Last Name");
+        list[4].setPromptText("Genre");
+        list[5].setPromptText("Price");
+        list[6].setPromptText("No. Copies");
 
         Button btAddBook = new Button("Add Book");
         gp.add(btAddBook, 7, 0);
-        btAddBook.setOnAction(e -> addBook(title, lastName, firstName, genre,
-                isbn, price, noCopies, admin));
+        btAddBook.setOnAction(e -> addBook(list[1], list[3], list[2], list[4],
+                list[0], list[5], list[6], admin));
 
         Button btEdit = new Button("Edit");
         btEdit.setMaxSize(80, 10);
@@ -391,54 +349,45 @@ public class Start extends Application {
         try {
             GridPane gridp = new GridPane();
 
-            TextField isbn1 = new TextField();
-            isbn1.setText(isbn.getText());
-            isbn1.setPromptText("ISBN");
-            gridp.add(isbn1, 0, 0);
-
             Book temp = new Book();
             Search.searchData(isbn.getText(), "ISBN");
             temp = Search.getSearches().get(0);
 
-            TextField title = new TextField();
-            title.setPromptText("Title");
-            title.setText(temp.getTitle());
-            gridp.add(title, 1, 0);
+            //The order is ISBN,Title,First Name,Last Name, Genre,Price,No copies
+            TextField list[] = new TextField[7];
 
-            TextField firstN = new TextField();
-            firstN.setPromptText("First Name");
-            firstN.setText(temp.getFirstName());
-            gridp.add(firstN, 2, 0);
+            list[0].setPromptText("ISBN");
+            list[0].setText(isbn.getText());
 
-            TextField lastN = new TextField();
-            lastN.setPromptText("Last Name");
-            lastN.setText(temp.getLastName());
-            gridp.add(lastN, 3, 0);
+            list[1].setPromptText("Title");
+            list[1].setText(temp.getTitle());
 
-            TextField genre = new TextField();
-            genre.setPromptText("Genre");
-            genre.setText(String.valueOf(temp.getGenre()));
-            genre.setMaxSize(80, 10);
-            gridp.add(genre, 4, 0);
+            list[2].setPromptText("First Name");
+            list[2].setText(temp.getFirstName());
 
-            TextField price = new TextField();
-            price.setPromptText("Price");
-            price.setMaxSize(80, 10);
-            price.setText(String.valueOf(temp.getPrice()));
-            gridp.add(price, 5, 0);
+            list[3].setPromptText("Last Name");
+            list[3].setText(temp.getLastName());
 
-            TextField noCopies = new TextField();
-            noCopies.setPromptText("No. Copies");
-            noCopies.setMaxSize(80, 10);
-            noCopies.setText(String.valueOf(temp.getNumCopies()));
-            gridp.add(noCopies, 6, 0);
+            list[4].setPromptText("Genre");
+            list[4].setText(String.valueOf(temp.getGenre()));
+
+            list[5].setPromptText("Price");
+            list[5].setText(String.valueOf(temp.getPrice()));
+
+            list[6].setPromptText("No. Copies");
+            list[6].setText(String.valueOf(temp.getNumCopies()));
+            
+            for (int i = 0; i < list.length; i++) {
+                gridp.add(list[i], i, 0);
+                list[i].setMaxSize(80, 10);
+            }
 
             Button btSave = new Button("Save");
             gridp.add(btSave, 2, 1);
             gridp.setHalignment(btSave, HPos.RIGHT);
             btSave.setMaxSize(80, 10);
-            btSave.setOnAction(e -> adminEdit(admin, isbn, title, lastN, firstN, genre, price,
-                    noCopies, isbn1));
+            btSave.setOnAction(e -> adminEdit(admin, isbn, list[1], list[3], list[2], list[4], list[5],
+                    list[6], list[0]));
 
             Button btBack = new Button("Back");
             gridp.add(btBack, 3, 1);
