@@ -409,14 +409,15 @@ public class Start extends Application {
     }
 
     public void deleteBook(Admin admin, TextField isbn) {
-        if(admin.deleteBook(isbn.getText()) == true)
+        if (admin.deleteBook(isbn.getText()) == true) {
             admin.deleteBook(isbn.getText());
-        else
+        } else {
             badAlert("ISBN not found!");
+        }
     }
 
     public void adminEdit(Admin admin, TextField isbn) {
-        if(Search.searchData(isbn.getText(), "ISBN")==true){
+        if (Search.searchData(isbn.getText(), "ISBN") == true) {
             GridPane gridp = new GridPane();
 
             Book temp = new Book();
@@ -425,6 +426,12 @@ public class Start extends Application {
 
             //The order is ISBN,Title,First Name,Last Name, Genre,Price,Copies
             TextField list[] = new TextField[7];
+
+            for (int i = 0; i < list.length; i++) {
+                list[i] = new TextField();
+                gridp.add(list[i], i, 0);
+                list[i].setMaxSize(80, 10);
+            }
 
             list[0].setPromptText("ISBN");
             list[0].setText(isbn.getText());
@@ -445,12 +452,7 @@ public class Start extends Application {
             list[5].setText(String.valueOf(temp.getPrice()));
 
             list[6].setPromptText("No. Copies");
-            list[6].setText(String.valueOf(temp.getNumCopies()));
-
-            for (int i = 0; i < list.length; i++) {
-                gridp.add(list[i], i, 0);
-                list[i].setMaxSize(80, 10);
-            }
+            list[6].setText(String.valueOf((int)temp.getNumCopies()));
 
             Button btSave = new Button("Save");
             gridp.add(btSave, 2, 1);
@@ -469,8 +471,9 @@ public class Start extends Application {
             Scene scene = new Scene(gridp, 800, 100);
             window.setTitle("Admin Edit Screen");
             window.setScene(scene);
-        }else
+        } else {
             badAlert("ISBN not found!");
+        }
     }
 
     public void adminEdit(Admin admin, TextField isbn, TextField title,
