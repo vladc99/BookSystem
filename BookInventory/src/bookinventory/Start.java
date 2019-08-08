@@ -34,10 +34,8 @@ public class Start extends Application {
         BookInventory inventory = new BookInventory();
 
         launch(args);
-
     }
 
-    Stage window;
     ImageView logo = new ImageView(new Image("https://i.imgur.com/OUzMOtx.jpg"));
 
     ComboBox<String> sortBy = new ComboBox();
@@ -49,6 +47,8 @@ public class Start extends Application {
 
     int pages = (BookInventory.data.size() / 25);
     int currentPage = 0;
+
+    Stage window;
 
     @Override
     public void start(Stage primaryStage) {
@@ -82,7 +82,7 @@ public class Start extends Application {
     }
 
     public void guestLogIn() {
-
+        try{
         GridPane gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER);
 
@@ -107,8 +107,17 @@ public class Start extends Application {
         btListAll.setOnAction(e -> listAll());
         btListAll.setMaxSize(80, 10);
 
+        Button btAdmin = new Button("Admin");
+        gridPane.add(btAdmin, 1, 3);
+        gridPane.setHalignment(btAdmin,HPos.CENTER);
+        btAdmin.setOnAction(e->adminLogIn());
+        btAdmin.setMaxSize(80, 10);
+
         Scene firstPageUser = new Scene(gridPane, 500, 500);
         window.setScene(firstPageUser);
+    }catch(Exception e){
+        badAlert("Book not in the system");
+        }
     }
 
     public void search(String searchLocation, String searchKey) {
@@ -143,21 +152,6 @@ public class Start extends Application {
                 gp.add(new Label(String.valueOf(Search.searches.get(i).getNumCopies())), 5, 1 + i);
             }
 
-            //make buttons
-            Button[] list = new Button[Search.searches.size()];
-            for (int i = 0; i < Search.searches.size(); i++) {
-                list[i] = new Button("Add to Cart");
-            }
-
-            //add buttons to the pane
-            for (int i = 0; i < Search.searches.size(); i++) {
-                gp.add(list[i], 6, i + 1);
-            }
-
-            for (int i = 0; i < list.length; i++) {
-                list[i].setOnAction(e -> addToCart());
-            }
-
             Button btBack = new Button("Back");
             btBack.setMaxSize(90, 10);
             gp.add(btBack, 2, 2 + Search.searches.size());
@@ -169,10 +163,6 @@ public class Start extends Application {
         } catch (Exception e) {
             badAlert("No books found!");
         }
-    }
-
-    public void addToCart() {
-
     }
 
     public void listAll() {
@@ -215,7 +205,7 @@ public class Start extends Application {
 
         Button btBack = new Button("Back");
         btBack.setMaxSize(50, 10);
-        gp.setHalignment(btBack, HPos.CENTER);
+        gp.setHalignment(btBack, HPos.LEFT);
         gp.add(btBack, 2, 27);
         btBack.setOnAction(e -> listBackPage());
 
@@ -225,6 +215,13 @@ public class Start extends Application {
         gp.setHalignment(btNext, HPos.RIGHT);
         gp.add(btNext, 2, 27);
         btNext.setOnAction(e -> listNextPage(gp));
+        
+        if(currentPage > 0){
+            Button btHome = new Button("Home");
+            gp.add(btHome, 2, 27);
+            gp.setHalignment(btHome,HPos.CENTER);
+            btHome.setOnAction(e->guestLogIn());
+        }
 
         Scene listAll = new Scene(gp, 800, 650);
         window.setScene(listAll);
@@ -272,6 +269,7 @@ public class Start extends Application {
         //the order of the Array is as follows: ISBN,Title,First Name,Last Name,Genre,Price and number of Copies
         TextField[] list = new TextField[7];
         for (int i = 0; i < list.length; i++) {
+            list[i] = new TextField();
             list[i].setMaxSize(70, 10);
             gp.add(list[i], i, 0);
         }
@@ -280,6 +278,7 @@ public class Start extends Application {
         list[1].setPromptText("Title");
         list[2].setPromptText("First Name");
         list[3].setPromptText("Last Name");
+        list[3].setMaxSize(300, 10);
         list[4].setPromptText("Genre");
         list[5].setPromptText("Price");
         list[6].setPromptText("No. Copies");
@@ -324,9 +323,10 @@ public class Start extends Application {
         gp.add(btOrder, 2, 2);
         btOrder.setOnAction(e -> orderBook(admin, isbn3, noBooks));
 
-        Button btBack = new Button("Back");
-        btBack.setMaxSize(80, 200);
+        Button btBack = new Button("Go to Search");
+        btBack.setMaxSize(300, 10);
         gp.add(btBack, 3, 3);
+        btBack.setOnAction(e -> guestLogIn());
 
         Scene adminFirstPage = new Scene(gp, 800, 300);
         window.setScene(adminFirstPage);
