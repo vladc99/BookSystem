@@ -8,16 +8,30 @@ import java.util.*;
 
 /**
  *
- * @author Brydon
+ * @author Brydon Parsons
+ * @author Vlad Crihan
+ * @author Adit Tandon
+ * 
+ * Models an inventory that consists of all the books available
  */
 public class BookInventory{
-
+    
+    /**
+     * ArrayList that consists of Book objects and represents all the books in 
+     * the system
+    */
     public static List<Book> data = new ArrayList<>();
-
+    
+    /**
+     * Reads data from the books.csv line by line. Each line represents one 
+     * book. Data is added to a book object and then added to the ArrayList.
+     * This happens until the end of the file is reached.
+    */
     public BookInventory() throws IOException{
 
         //import text file into array list of Book objects
-        try(BufferedReader br = new BufferedReader(new FileReader("books.csv"))){
+        try(BufferedReader br = new BufferedReader(new FileReader(
+                "books.csv"))){
             String line;
             int counter = 0;
             while((line = br.readLine()) != null){

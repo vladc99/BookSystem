@@ -1,12 +1,12 @@
-/*
-
-
-
- * @author Brydon Parsons
-
- */
 package bookinventory;
 
+/**
+ * @author Brydon Parsons
+ * @author Vlad Crihan
+ * @author Adit Tandon
+ * 
+ * Class represents a single Book
+*/
 public class Book{
 
     private String title;
@@ -16,8 +16,18 @@ public class Book{
     private String ISBN;
     private double price;
     private double numCopies;
-
-    public Book(String title, String firstName, String lastName, Genre genre, String ISBN, double price, double numCopies){
+    
+    /**
+     * @param title Title of the book
+     * @param firstName Author's first name
+     * @param lastName Author's last name
+     * @param genre of the book (using one of the enum values)
+     * @param ISBN ISBN associated with that book
+     * @param price The cost of the book
+     * @param numCopies The number of copies of that book available 
+    */
+    public Book(String title, String firstName, String lastName, Genre genre, 
+            String ISBN, double price, double numCopies){
         this.title = title;
         this.firstName = firstName;
         this.lastName = lastName;

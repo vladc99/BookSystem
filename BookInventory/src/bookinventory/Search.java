@@ -1,12 +1,32 @@
 package bookinventory;
 
 import java.util.*;
-import java.io.*;
 
+/**
+ * @author Brydon Parsons
+ * @author Vlad Crihan
+ * @author Adit Tandon
+ * 
+ * Search class that is used to search through the data ArrayList (defined in
+ * BookInventory.java) 
+*/
 public abstract class Search{
-
+    
+    /**
+     * ArrayList that contains Book objects that are the result of the 
+     * searchData() method
+    */
     public static ArrayList<Book> searches = new ArrayList<>();
-
+    
+    /**
+     * @param searchKey What the guest wants to search
+     * @param searchType What the user wants to search by 
+     * 
+     * ArrayList is first cleared to prevent any conflicts from previous 
+     * searches. The conditional is used to check the searchType and then 
+     * iterate through the data ArrayList to find the appropriate match to the
+     * searchKey
+    */
     public static void searchData(String searchKey, String searchType){
 
         searches.clear();

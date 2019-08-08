@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bookinventory;
 
 import java.io.IOException;
@@ -24,11 +19,21 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 /**
- *
  * @author Vlad Crihan
+ * @author Brydon Parsons
+ * @author Adit Tandon
+ *
+ *
+ * This class consists of all the GUI methods that models the front end of 
+ * our program. 
  */
 public class Start extends Application {
-
+    
+    /**
+     * Instantiates a BookInventory method that reads the external file to 
+     * the program so it can be manipulated with other methods and classes.
+    */
+    
     public static void main(String[] args) throws IOException {
 
         BookInventory inventory = new BookInventory();
@@ -36,7 +41,8 @@ public class Start extends Application {
         launch(args);
     }
 
-    ImageView logo = new ImageView(new Image("https://i.imgur.com/OUzMOtx.jpg"));
+    ImageView logo = new ImageView(new Image(
+            "https://i.imgur.com/OUzMOtx.jpg"));
 
     ComboBox<String> sortBy = new ComboBox();
     int sortByTemp = 0;
@@ -99,7 +105,8 @@ public class Start extends Application {
 
         Button btSearch = new Button("Search");
         gridPane.add(btSearch, 2, 1);
-        btSearch.setOnAction(e -> search(sortBy.getValue(), searchBar.getText()));
+        btSearch.setOnAction(e -> search(sortBy.getValue(), 
+                searchBar.getText()));
 
         Button btListAll = new Button("List All");
         gridPane.add(btListAll, 1, 2);
@@ -128,7 +135,7 @@ public class Start extends Application {
             gp.setHgap(10);
             gp.setVgap(5);
 
-            //The order of the array is: ISBN,Last Name,Title,Genre,Price,Number of Copies
+            //The order of the array is: ISBN,Last Name,Title,Genre,Price,Copies
             Label[] labelList = new Label[6];
 
             labelList[0] = new Label("ISBN");
@@ -139,17 +146,22 @@ public class Start extends Application {
             labelList[5] = new Label("No. Copies");
 
             for (int i = 0; i < labelList.length; i++) {
-                labelList[i].setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
+                labelList[i].setFont(Font.font("Times New Roman", 
+                        FontWeight.BOLD, 20));
                 gp.add(labelList[i], i, 0);
             }
 
             for (int i = 0; i < Search.searches.size(); i++) {
                 gp.add(new Label(Search.searches.get(i).getISBN()), 0, 1 + i);
-                gp.add(new Label(Search.searches.get(i).getLastName()), 1, 1 + i);
+                gp.add(new Label(
+                        Search.searches.get(i).getLastName()), 1, 1 + i);
                 gp.add(new Label(Search.searches.get(i).getTitle()), 2, 1 + i);
-                gp.add(new Label(String.valueOf(Search.searches.get(i).getGenre())), 3, 1 + i);
-                gp.add(new Label(String.valueOf(Search.searches.get(i).getPrice())), 4, 1 + i);
-                gp.add(new Label(String.valueOf(Search.searches.get(i).getNumCopies())), 5, 1 + i);
+                gp.add(new Label(String.valueOf(
+                        Search.searches.get(i).getGenre())), 3, 1 + i);
+                gp.add(new Label(String.valueOf(
+                        Search.searches.get(i).getPrice())), 4, 1 + i);
+                gp.add(new Label(String.valueOf(
+                        Search.searches.get(i).getNumCopies())), 5, 1 + i);
             }
 
             Button btBack = new Button("Back");
@@ -171,7 +183,7 @@ public class Start extends Application {
         gp.setHgap(10);
         gp.setVgap(5);
 
-        //The order of the array is: ISBN,Last Name,Title,Genre,Price,Number of Copies
+        //The order of the array is: ISBN,Last Name,Title,Genre,Price,Copies
         Label[] list = new Label[6];
 
         list[0] = new Label("ISBN");
@@ -195,12 +207,19 @@ public class Start extends Application {
             a = 26 + temp;
         }
         for (int i = 0 + temp; i < a; i++) {
-            gp.add(new Label(BookInventory.data.get(i).getISBN()), 0, i + 1 - temp);
-            gp.add(new Label(BookInventory.data.get(i).getLastName()), 1, i + 1 - temp);
-            gp.add(new Label(BookInventory.data.get(i).getTitle()), 2, i + 1 - temp);
-            gp.add(new Label(String.valueOf(BookInventory.data.get(i).getGenre())), 3, i + 1 - temp);
-            gp.add(new Label(String.valueOf(BookInventory.data.get(i).getPrice())), 4, i + 1 - temp);
-            gp.add(new Label(String.valueOf(BookInventory.data.get(i).getNumCopies())), 5, i + 1 - temp);
+            gp.add(new Label(
+                    BookInventory.data.get(i).getISBN()), 0, i + 1 - temp);
+            gp.add(new Label(
+                    BookInventory.data.get(i).getLastName()), 1, i + 1 - temp);
+            gp.add(new Label(
+                    BookInventory.data.get(i).getTitle()), 2, i + 1 - temp);
+            gp.add(new Label(String.valueOf(
+                    BookInventory.data.get(i).getGenre())), 3, i + 1 - temp);
+            gp.add(new Label(String.valueOf(
+                    BookInventory.data.get(i).getPrice())), 4, i + 1 - temp);
+            gp.add(new Label(String.valueOf(
+                    BookInventory.data.get(i).getNumCopies())), 
+                    5, i + 1 - temp);
         }
 
         Button btBack = new Button("Back");
@@ -235,7 +254,6 @@ public class Start extends Application {
             a.show();
             listAll();
         } else {
-            System.out.println(pages + "Page");
             currentPage++;
             temp += 25;
             listAll();
@@ -266,7 +284,6 @@ public class Start extends Application {
         GridPane gp = new GridPane();
         gp.setAlignment(Pos.CENTER);
 
-        //the order of the Array is as follows: ISBN,Title,First Name,Last Name,Genre,Price and number of Copies
         TextField[] list = new TextField[7];
         for (int i = 0; i < list.length; i++) {
             list[i] = new TextField();
@@ -343,8 +360,9 @@ public class Start extends Application {
         a.show();
     }
 
-    public void addBook(TextField title, TextField lastName, TextField firstName,
-            TextField genre, TextField isbn, TextField price, TextField noCopies,
+    public void addBook(TextField title, TextField lastName, 
+            TextField firstName, TextField genre, TextField isbn, 
+            TextField price, TextField noCopies,
             Admin admin) {
         admin.addBook(title.getText(), lastName.getText(), firstName.getText(),
                 Genre.valueOf(genre.getText().toUpperCase()), isbn.getText(),
@@ -365,7 +383,7 @@ public class Start extends Application {
             Search.searchData(isbn.getText(), "ISBN");
             temp = Search.getSearches().get(0);
 
-            //The order is ISBN,Title,First Name,Last Name, Genre,Price,No copies
+            //The order is ISBN,Title,First Name,Last Name, Genre,Price,Copies
             TextField list[] = new TextField[7];
 
             list[0].setPromptText("ISBN");
@@ -398,8 +416,9 @@ public class Start extends Application {
             gridp.add(btSave, 2, 1);
             gridp.setHalignment(btSave, HPos.RIGHT);
             btSave.setMaxSize(80, 10);
-            btSave.setOnAction(e -> adminEdit(admin, isbn, list[1], list[3], list[2], list[4], list[5],
-                    list[6], list[0]));
+            btSave.setOnAction(
+                    e -> adminEdit(admin, isbn, list[1], list[3], list[2], 
+                            list[4], list[5], list[6], list[0]));
 
             Button btBack = new Button("Back");
             gridp.add(btBack, 3, 1);
@@ -414,9 +433,9 @@ public class Start extends Application {
         }
     }
 
-    public void adminEdit(Admin admin, TextField isbn, TextField title, TextField lastN,
-            TextField firstN, TextField genre, TextField price, TextField noCopies,
-            TextField newISBN) {
+    public void adminEdit(Admin admin, TextField isbn, TextField title, 
+            TextField lastN, TextField firstN, TextField genre, 
+            TextField price, TextField noCopies, TextField newISBN) {
         admin.editBook(String.valueOf(isbn.getText()),
                 String.valueOf(title.getText()),
                 String.valueOf(lastN.getText()),
