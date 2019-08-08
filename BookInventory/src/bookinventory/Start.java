@@ -24,16 +24,15 @@ import javafx.stage.Stage;
  * @author Adit Tandon
  *
  *
- * This class consists of all the GUI methods that models the front end of 
- * our program. 
+ * This class consists of all the GUI methods that models the front end of our
+ * program.
  */
 public class Start extends Application {
-    
+
     /**
-     * Instantiates a BookInventory method that reads the external file to 
-     * the program so it can be manipulated with other methods and classes.
-    */
-    
+     * Instantiates a BookInventory method that reads the external file to the
+     * program so it can be manipulated with other methods and classes.
+     */
     public static void main(String[] args) throws IOException {
 
         BookInventory inventory = new BookInventory();
@@ -59,6 +58,7 @@ public class Start extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
+            
             GridPane gridPane = new GridPane();
             gridPane.setAlignment(Pos.CENTER);
             gridPane.setHgap(5);
@@ -88,42 +88,50 @@ public class Start extends Application {
     }
 
     public void guestLogIn() {
-        try{
-        GridPane gridPane = new GridPane();
-        gridPane.setAlignment(Pos.CENTER);
+        try {
+            GridPane gridPane = new GridPane();
+            gridPane.setAlignment(Pos.CENTER);
 
-        gridPane.add(logo, 1, 0);
+            gridPane.add(logo, 1, 0);
 
-        if (sortByTemp == 0) {
-            sortBy.getItems().addAll("ISBN", "Last Name", "Title");
-            sortBy.setValue("Sort By");
-            gridPane.add(sortBy, 0, 1);
-        }
+            if (sortByTemp == 0) {
+                sortBy.getItems().addAll("ISBN", "Last Name", "Title");
+                sortBy.setValue("Sort By");
+                gridPane.add(sortBy, 0, 1);
+                sortByTemp++;
+            }
 
-        searchBar.setPromptText("Search");
-        gridPane.add(searchBar, 1, 1);
+            searchBar.setPromptText("Search");
+            gridPane.add(searchBar, 1, 1);
 
-        Button btSearch = new Button("Search");
-        gridPane.add(btSearch, 2, 1);
-        btSearch.setOnAction(e -> search(sortBy.getValue(), 
-                searchBar.getText()));
+            Button btSearch = new Button("Search");
+            gridPane.add(btSearch, 2, 1);
+            btSearch.setOnAction(e -> search(sortBy.getValue(),
+                    searchBar.getText()));
 
-        Button btListAll = new Button("List All");
-        gridPane.add(btListAll, 1, 2);
-        gridPane.setHalignment(btListAll, HPos.CENTER);
-        btListAll.setOnAction(e -> listAll());
-        btListAll.setMaxSize(80, 10);
+            Button btListAll = new Button("List All");
+            gridPane.add(btListAll, 1, 2);
+            gridPane.setHalignment(btListAll, HPos.CENTER);
+            btListAll.setOnAction(e -> listAll());
+            btListAll.setMaxSize(80, 10);
 
-        Button btAdmin = new Button("Admin");
-        gridPane.add(btAdmin, 1, 3);
-        gridPane.setHalignment(btAdmin,HPos.CENTER);
-        btAdmin.setOnAction(e->adminLogIn());
-        btAdmin.setMaxSize(80, 10);
+            Button btAdmin = new Button("Admin");
+            gridPane.add(btAdmin, 1, 3);
+            gridPane.setHalignment(btAdmin, HPos.CENTER);
+            btAdmin.setOnAction(e -> adminLogIn());
+            btAdmin.setMaxSize(80, 10);
 
-        Scene firstPageUser = new Scene(gridPane, 500, 500);
-        window.setScene(firstPageUser);
-    }catch(Exception e){
-        badAlert("Book not in the system");
+            Button btExit = new Button("Exit");
+            gridPane.add(btExit, 1, 4);
+            gridPane.setHalignment(btExit, HPos.CENTER);
+            btExit.setMaxSize(80, 10);
+            btExit.setOnAction(e -> System.exit(0));
+
+            Scene firstPageUser = new Scene(gridPane, 500, 500);
+            window.setTitle("Guest Home Screen");
+            window.setScene(firstPageUser);
+        } catch (Exception e) {
+            badAlert("Book not in the system");
         }
     }
 
@@ -146,7 +154,7 @@ public class Start extends Application {
             labelList[5] = new Label("No. Copies");
 
             for (int i = 0; i < labelList.length; i++) {
-                labelList[i].setFont(Font.font("Times New Roman", 
+                labelList[i].setFont(Font.font("Times New Roman",
                         FontWeight.BOLD, 20));
                 gp.add(labelList[i], i, 0);
             }
@@ -171,6 +179,7 @@ public class Start extends Application {
             btBack.setOnAction(e -> guestLogIn());
 
             Scene scene = new Scene(gp, 900, 300);
+            window.setTitle("Search Results");
             window.setScene(scene);
         } catch (Exception e) {
             badAlert("No books found!");
@@ -218,7 +227,7 @@ public class Start extends Application {
             gp.add(new Label(String.valueOf(
                     BookInventory.data.get(i).getPrice())), 4, i + 1 - temp);
             gp.add(new Label(String.valueOf(
-                    BookInventory.data.get(i).getNumCopies())), 
+                    BookInventory.data.get(i).getNumCopies())),
                     5, i + 1 - temp);
         }
 
@@ -234,15 +243,16 @@ public class Start extends Application {
         gp.setHalignment(btNext, HPos.RIGHT);
         gp.add(btNext, 2, 27);
         btNext.setOnAction(e -> listNextPage(gp));
-        
-        if(currentPage > 0){
+
+        if (currentPage > 0) {
             Button btHome = new Button("Home");
             gp.add(btHome, 2, 27);
-            gp.setHalignment(btHome,HPos.CENTER);
-            btHome.setOnAction(e->guestLogIn());
+            gp.setHalignment(btHome, HPos.CENTER);
+            btHome.setOnAction(e -> guestLogIn());
         }
 
         Scene listAll = new Scene(gp, 800, 650);
+        window.setTitle("List All");
         window.setScene(listAll);
     }
 
@@ -261,6 +271,7 @@ public class Start extends Application {
     }
 
     public void listBackPage() {
+        //checking where should the back send the user 
         if (temp == 0) {
             guestLogIn();
             currentPage = 0;
@@ -345,7 +356,14 @@ public class Start extends Application {
         gp.add(btBack, 3, 3);
         btBack.setOnAction(e -> guestLogIn());
 
+        Button btExit = new Button("Exit");
+        gp.add(btExit, 3, 4);
+        gp.setHalignment(btExit, HPos.CENTER);
+        btExit.setMaxSize(300, 10);
+        btExit.setOnAction(e -> System.exit(0));
+
         Scene adminFirstPage = new Scene(gp, 800, 300);
+        window.setTitle("Admin Home Screen");
         window.setScene(adminFirstPage);
     }
 
@@ -360,8 +378,8 @@ public class Start extends Application {
         a.show();
     }
 
-    public void addBook(TextField title, TextField lastName, 
-            TextField firstName, TextField genre, TextField isbn, 
+    public void addBook(TextField title, TextField lastName,
+            TextField firstName, TextField genre, TextField isbn,
             TextField price, TextField noCopies,
             Admin admin) {
         admin.addBook(title.getText(), lastName.getText(), firstName.getText(),
@@ -417,7 +435,7 @@ public class Start extends Application {
             gridp.setHalignment(btSave, HPos.RIGHT);
             btSave.setMaxSize(80, 10);
             btSave.setOnAction(
-                    e -> adminEdit(admin, isbn, list[1], list[3], list[2], 
+                    e -> adminEdit(admin, isbn, list[1], list[3], list[2],
                             list[4], list[5], list[6], list[0]));
 
             Button btBack = new Button("Back");
@@ -427,14 +445,15 @@ public class Start extends Application {
             btBack.setOnAction(e -> adminLogIn());
 
             Scene scene = new Scene(gridp, 800, 100);
+            window.setTitle("Admin Edit Screen");
             window.setScene(scene);
         } catch (Exception e) {
             badAlert("ISBN not found");
         }
     }
 
-    public void adminEdit(Admin admin, TextField isbn, TextField title, 
-            TextField lastN, TextField firstN, TextField genre, 
+    public void adminEdit(Admin admin, TextField isbn, TextField title,
+            TextField lastN, TextField firstN, TextField genre,
             TextField price, TextField noCopies, TextField newISBN) {
         admin.editBook(String.valueOf(isbn.getText()),
                 String.valueOf(title.getText()),
