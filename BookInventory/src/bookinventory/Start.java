@@ -58,7 +58,7 @@ public class Start extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            
+
             GridPane gridPane = new GridPane();
             gridPane.setAlignment(Pos.CENTER);
             gridPane.setHgap(5);
@@ -97,9 +97,9 @@ public class Start extends Application {
             if (sortByTemp == 0) {
                 sortBy.getItems().addAll("ISBN", "Last Name", "Title");
                 sortBy.setValue("Sort By");
-                gridPane.add(sortBy, 0, 1);
                 sortByTemp++;
             }
+            gridPane.add(sortBy, 0, 1);
 
             searchBar.setPromptText("Search");
             gridPane.add(searchBar, 1, 1);
@@ -137,52 +137,56 @@ public class Start extends Application {
 
     public void search(String searchLocation, String searchKey) {
         Search.searchData(searchKey, searchLocation);
-        try {
-            GridPane gp = new GridPane();
-            gp.setAlignment(Pos.CENTER);
-            gp.setHgap(10);
-            gp.setVgap(5);
+        if (Search.searchData(searchKey, searchLocation) == true) {
+            try {
+                GridPane gp = new GridPane();
+                gp.setAlignment(Pos.CENTER);
+                gp.setHgap(10);
+                gp.setVgap(5);
 
-            //The order of the array is: ISBN,Last Name,Title,Genre,Price,Copies
-            Label[] labelList = new Label[6];
+                //The order of the array is: ISBN,Last Name,Title,Genre,Price,Copies
+                Label[] labelList = new Label[6];
 
-            labelList[0] = new Label("ISBN");
-            labelList[1] = new Label("Last Name");
-            labelList[2] = new Label("Title");
-            labelList[3] = new Label("Genre");
-            labelList[4] = new Label("Price");
-            labelList[5] = new Label("No. Copies");
+                labelList[0] = new Label("ISBN");
+                labelList[1] = new Label("Last Name");
+                labelList[2] = new Label("Title");
+                labelList[3] = new Label("Genre");
+                labelList[4] = new Label("Price");
+                labelList[5] = new Label("No. Copies");
 
-            for (int i = 0; i < labelList.length; i++) {
-                labelList[i].setFont(Font.font("Times New Roman",
-                        FontWeight.BOLD, 20));
-                gp.add(labelList[i], i, 0);
+                for (int i = 0; i < labelList.length; i++) {
+                    labelList[i].setFont(Font.font("Times New Roman",
+                            FontWeight.BOLD, 20));
+                    gp.add(labelList[i], i, 0);
+                }
+
+                for (int i = 0; i < Search.searches.size(); i++) {
+                    gp.add(new Label(Search.searches.get(i).getISBN()), 0, 1 + i);
+                    gp.add(new Label(
+                            Search.searches.get(i).getLastName()), 1, 1 + i);
+                    gp.add(new Label(Search.searches.get(i).getTitle()), 2, 1 + i);
+                    gp.add(new Label(String.valueOf(
+                            Search.searches.get(i).getGenre())), 3, 1 + i);
+                    gp.add(new Label(String.valueOf(
+                            Search.searches.get(i).getPrice())), 4, 1 + i);
+                    gp.add(new Label(String.valueOf(
+                            Search.searches.get(i).getNumCopies())), 5, 1 + i);
+                }
+
+                Button btBack = new Button("Back");
+                btBack.setMaxSize(90, 10);
+                gp.add(btBack, 2, 2 + Search.searches.size());
+                gp.setHalignment(btBack, HPos.CENTER);
+                btBack.setOnAction(e -> guestLogIn());
+
+                Scene scene = new Scene(gp, 900, 300);
+                window.setTitle("Search Results");
+                window.setScene(scene);
+            } catch (Exception e) {
+                badAlert("No books found!");
             }
-
-            for (int i = 0; i < Search.searches.size(); i++) {
-                gp.add(new Label(Search.searches.get(i).getISBN()), 0, 1 + i);
-                gp.add(new Label(
-                        Search.searches.get(i).getLastName()), 1, 1 + i);
-                gp.add(new Label(Search.searches.get(i).getTitle()), 2, 1 + i);
-                gp.add(new Label(String.valueOf(
-                        Search.searches.get(i).getGenre())), 3, 1 + i);
-                gp.add(new Label(String.valueOf(
-                        Search.searches.get(i).getPrice())), 4, 1 + i);
-                gp.add(new Label(String.valueOf(
-                        Search.searches.get(i).getNumCopies())), 5, 1 + i);
-            }
-
-            Button btBack = new Button("Back");
-            btBack.setMaxSize(90, 10);
-            gp.add(btBack, 2, 2 + Search.searches.size());
-            gp.setHalignment(btBack, HPos.CENTER);
-            btBack.setOnAction(e -> guestLogIn());
-
-            Scene scene = new Scene(gp, 900, 300);
-            window.setTitle("Search Results");
-            window.setScene(scene);
-        } catch (Exception e) {
-            badAlert("No books found!");
+        } else {
+            badAlert("No Match Found");
         }
     }
 
@@ -284,92 +288,100 @@ public class Start extends Application {
 
     public void badAlert(String message) {
         a.setAlertType(AlertType.ERROR);
-        a.setContentText("message");
+        a.setContentText(message);
         a.show();
     }
 
     public void adminLogIn() {
-
-        Admin admin = new Admin();
-
-        GridPane gp = new GridPane();
-        gp.setAlignment(Pos.CENTER);
-
-        TextField[] list = new TextField[7];
-        for (int i = 0; i < list.length; i++) {
-            list[i] = new TextField();
-            list[i].setMaxSize(70, 10);
-            gp.add(list[i], i, 0);
-        }
-
-        list[0].setPromptText("ISBN");
-        list[1].setPromptText("Title");
-        list[2].setPromptText("First Name");
-        list[3].setPromptText("Last Name");
-        list[3].setMaxSize(300, 10);
-        list[4].setPromptText("Genre");
-        list[5].setPromptText("Price");
-        list[6].setPromptText("No. Copies");
-
-        Button btAddBook = new Button("Add Book");
-        gp.add(btAddBook, 7, 0);
-        btAddBook.setOnAction(e -> addBook(list[1], list[3], list[2], list[4],
-                list[0], list[5], list[6], admin));
-
         try {
-            Button btEdit = new Button("Edit");
-            btEdit.setMaxSize(80, 10);
-            gp.add(btEdit, 0, 1);
+            Admin admin = new Admin();
 
-            TextField isbn1 = new TextField();
-            isbn1.setMaxSize(70, 10);
-            isbn1.setPromptText("ISBN");
-            gp.add(isbn1, 1, 1);
+            GridPane gp = new GridPane();
+            gp.setAlignment(Pos.CENTER);
 
-            btEdit.setOnAction(e -> adminEdit(admin, isbn1));
+            TextField[] list = new TextField[7];
+            for (int i = 0; i < list.length; i++) {
+                list[i] = new TextField();
+                list[i].setMaxSize(70, 10);
+                gp.add(list[i], i, 0);
+            }
 
-            Button btDelete = new Button("Delete");
-            btDelete.setMaxSize(80, 10);
-            gp.add(btDelete, 2, 1);
-            btDelete.setOnAction(e -> deleteBook(admin, isbn1));
+            list[0].setPromptText("ISBN");
+            list[1].setPromptText("Title");
+            list[2].setPromptText("First Name");
+            list[3].setPromptText("Last Name");
+            list[3].setMaxSize(300, 10);
+            list[4].setPromptText("Genre");
+            list[5].setPromptText("Price");
+            list[6].setPromptText("No. Copies");
+
+            Button btAddBook = new Button("Add Book");
+            gp.add(btAddBook, 7, 0);
+            btAddBook.setOnAction(e -> addBook(list[1], list[3], list[2], list[4],
+                    list[0], list[5], list[6], admin));
+
+            try {
+                Button btEdit = new Button("Edit");
+                btEdit.setMaxSize(80, 10);
+                gp.add(btEdit, 0, 1);
+
+                TextField isbn1 = new TextField();
+                isbn1.setMaxSize(70, 10);
+                isbn1.setPromptText("ISBN");
+                gp.add(isbn1, 1, 1);
+
+                btEdit.setOnAction(e -> adminEdit(admin, isbn1));
+
+                Button btDelete = new Button("Delete");
+                btDelete.setMaxSize(80, 10);
+                gp.add(btDelete, 2, 1);
+                btDelete.setOnAction(e -> deleteBook(admin, isbn1));
+            } catch (Exception e) {
+                badAlert("ISBN not found");
+            }
+
+            TextField noBooks = new TextField();
+            noBooks.setPromptText("No. Books");
+            noBooks.setMaxSize(70, 10);
+            gp.add(noBooks, 0, 2);
+
+            TextField isbn3 = new TextField();
+            isbn3.setPromptText("ISBN");
+            isbn3.setMaxSize(70, 10);
+            gp.add(isbn3, 1, 2);
+
+            Button btOrder = new Button("Order");
+            btOrder.setMaxSize(80, 10);
+            gp.add(btOrder, 2, 2);
+            btOrder.setOnAction(e -> orderBook(admin, isbn3, noBooks));
+
+            Button btBack = new Button("Go to Search");
+            btBack.setMaxSize(300, 10);
+            gp.add(btBack, 3, 3);
+            btBack.setOnAction(e -> guestLogIn());
+
+            Button btExit = new Button("Exit");
+            gp.add(btExit, 3, 4);
+            gp.setHalignment(btExit, HPos.CENTER);
+            btExit.setMaxSize(300, 10);
+            btExit.setOnAction(e -> System.exit(0));
+
+            Scene adminFirstPage = new Scene(gp, 800, 300);
+            window.setTitle("Admin Home Screen");
+            window.setScene(adminFirstPage);
         } catch (Exception e) {
-            badAlert("ISBN not found");
+            badAlert("Something's Wrong,Make sure the fields are completed"
+                    + "correctly ");
         }
-
-        TextField noBooks = new TextField();
-        noBooks.setPromptText("No. Books");
-        noBooks.setMaxSize(70, 10);
-        gp.add(noBooks, 0, 2);
-
-        TextField isbn3 = new TextField();
-        isbn3.setPromptText("ISBN");
-        isbn3.setMaxSize(70, 10);
-        gp.add(isbn3, 1, 2);
-
-        Button btOrder = new Button("Order");
-        btOrder.setMaxSize(80, 10);
-        gp.add(btOrder, 2, 2);
-        btOrder.setOnAction(e -> orderBook(admin, isbn3, noBooks));
-
-        Button btBack = new Button("Go to Search");
-        btBack.setMaxSize(300, 10);
-        gp.add(btBack, 3, 3);
-        btBack.setOnAction(e -> guestLogIn());
-
-        Button btExit = new Button("Exit");
-        gp.add(btExit, 3, 4);
-        gp.setHalignment(btExit, HPos.CENTER);
-        btExit.setMaxSize(300, 10);
-        btExit.setOnAction(e -> System.exit(0));
-
-        Scene adminFirstPage = new Scene(gp, 800, 300);
-        window.setTitle("Admin Home Screen");
-        window.setScene(adminFirstPage);
     }
 
     public void orderBook(Admin admin, TextField isbn, TextField noBooks) {
-        admin.orderBook(Integer.parseInt(noBooks.getText()), isbn.getText());
-        alertMessage("The book has been Ordered!");
+        if (!isbn.getText().equals("") && !noBooks.getText().equals("")) {
+            admin.orderBook(Integer.parseInt(noBooks.getText()), isbn.getText());
+            alertMessage("The book has been Ordered!");
+        } else {
+            badAlert("Order Info is not correct");
+        }
     }
 
     public void alertMessage(String message) {
@@ -382,19 +394,29 @@ public class Start extends Application {
             TextField firstName, TextField genre, TextField isbn,
             TextField price, TextField noCopies,
             Admin admin) {
-        admin.addBook(title.getText(), lastName.getText(), firstName.getText(),
-                Genre.valueOf(genre.getText().toUpperCase()), isbn.getText(),
-                Double.parseDouble(price.getText()),
-                Double.parseDouble(noCopies.getText()));
-        alertMessage(title.getText() + " has been added to the library");
+        if (!title.getText().equals("") && !lastName.getText().equals("")
+                && !firstName.getText().equals("") && !genre.getText().equals("")
+                && !isbn.getText().equals("") && !price.getText().equals("")
+                && !noCopies.getText().equals("")) {
+            admin.addBook(title.getText(), lastName.getText(), firstName.getText(),
+                    Genre.valueOf(genre.getText().toUpperCase()), isbn.getText(),
+                    Double.parseDouble(price.getText()),
+                    Double.parseDouble(noCopies.getText()));
+            alertMessage(title.getText() + " has been added to the library");
+        } else {
+            badAlert("Somewhere info is empty");
+        }
     }
 
     public void deleteBook(Admin admin, TextField isbn) {
-        admin.deleteBook(isbn.getText());
+        if(admin.deleteBook(isbn.getText()) == true)
+            admin.deleteBook(isbn.getText());
+        else
+            badAlert("ISBN not found!");
     }
 
     public void adminEdit(Admin admin, TextField isbn) {
-        try {
+        if(Search.searchData(isbn.getText(), "ISBN")==true){
             GridPane gridp = new GridPane();
 
             Book temp = new Book();
@@ -447,9 +469,8 @@ public class Start extends Application {
             Scene scene = new Scene(gridp, 800, 100);
             window.setTitle("Admin Edit Screen");
             window.setScene(scene);
-        } catch (Exception e) {
-            badAlert("ISBN not found");
-        }
+        }else
+            badAlert("ISBN not found!");
     }
 
     public void adminEdit(Admin admin, TextField isbn, TextField title,

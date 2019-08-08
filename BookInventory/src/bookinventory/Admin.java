@@ -45,13 +45,13 @@ public class Admin extends User {
      * Deletes a specific book who's ISBN matches the searchKey entered and 
      * then updates the ArrayList and the csv file accordingly.
     */
-    public void deleteBook(String searchKey) {
+    public boolean deleteBook(String searchKey) {
         //Delete entry from ArrayList
         Search.searchData(searchKey, "ISBN");
         for (int i = 0; i < BookInventory.data.size(); i++) {
             if (BookInventory.data.get(i).getISBN().equals(searchKey)) {
                 Search.searches.remove(0);
-                break;
+                return true;
             }
         }
 
@@ -82,6 +82,7 @@ public class Admin extends User {
             System.out.println("Error: " + ex.getMessage());
 
         }
+        return false;
     }
     
     /**
