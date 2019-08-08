@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
@@ -63,16 +64,23 @@ public class Start extends Application {
             gridPane.setAlignment(Pos.CENTER);
             gridPane.setHgap(5);
             gridPane.setVgap(5);
-
-            gridPane.add(logo, 0, 0);
+            
+            Label title = new Label("Book Inventory System");
+            
+            title.setFont(Font.font("Times New Roman",
+                            FontWeight.BOLD, FontPosture.ITALIC, 50));
+                        
+            gridPane.add(title, 0, 0);
+            gridPane.add(logo, 0, 4);
+            gridPane.setHalignment(logo, HPos.CENTER);
 
             Button btAdmin = new Button("Admin");
-            gridPane.add(btAdmin, 0, 1);
+            gridPane.add(btAdmin, 0, 5);
             gridPane.setHalignment(btAdmin, HPos.CENTER);
             btAdmin.setOnAction(e -> adminLogIn());
 
             Button btGuest = new Button("Guest");
-            gridPane.add(btGuest, 0, 2);
+            gridPane.add(btGuest, 0, 6);
             gridPane.setHalignment(btGuest, HPos.CENTER);
             btGuest.setOnAction(e -> guestLogIn());
 
