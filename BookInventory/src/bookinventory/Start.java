@@ -409,7 +409,8 @@ public class Start extends Application {
     }
 
     public void deleteBook(Admin admin, TextField isbn) {
-        if (admin.deleteBook(isbn.getText()) == true) {
+        if (Search.searchData(isbn.getText(), "ISBN") == true) {
+            alertMessage("ISBN:"+isbn.getText()+"has been deleted");
             admin.deleteBook(isbn.getText());
         } else {
             badAlert("ISBN not found!");
