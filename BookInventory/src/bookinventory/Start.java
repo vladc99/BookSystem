@@ -144,7 +144,6 @@ public class Start extends Application {
                 gp.setHgap(10);
                 gp.setVgap(5);
 
-                //The order of the array is: ISBN,Last Name,Title,Genre,Price,Copies
                 Label[] labelList = new Label[6];
 
                 labelList[0] = new Label("ISBN");
@@ -161,10 +160,12 @@ public class Start extends Application {
                 }
 
                 for (int i = 0; i < Search.searches.size(); i++) {
-                    gp.add(new Label(Search.searches.get(i).getISBN()), 0, 1 + i);
+                    gp.add(new Label(Search.searches.get(i).getISBN()), 0, 
+                            1 + i);
                     gp.add(new Label(
                             Search.searches.get(i).getLastName()), 1, 1 + i);
-                    gp.add(new Label(Search.searches.get(i).getTitle()), 2, 1 + i);
+                    gp.add(new Label(Search.searches.get(i).getTitle()), 2, 
+                            1 + i);
                     gp.add(new Label(String.valueOf(
                             Search.searches.get(i).getGenre())), 3, 1 + i);
                     gp.add(new Label(String.valueOf(
@@ -317,8 +318,8 @@ public class Start extends Application {
 
             Button btAddBook = new Button("Add Book");
             gp.add(btAddBook, 7, 0);
-            btAddBook.setOnAction(e -> addBook(list[1], list[3], list[2], list[4],
-                    list[0], list[5], list[6], admin));
+            btAddBook.setOnAction(e -> addBook(list[1], list[3], list[2], 
+                    list[4], list[0], list[5], list[6], admin));
 
             try {
                 Button btEdit = new Button("Edit");
@@ -377,7 +378,8 @@ public class Start extends Application {
 
     public void orderBook(Admin admin, TextField isbn, TextField noBooks) {
         if (!isbn.getText().equals("") && !noBooks.getText().equals("")) {
-            admin.orderBook(Integer.parseInt(noBooks.getText()), isbn.getText());
+            admin.orderBook(Integer.parseInt(noBooks.getText()), 
+                    isbn.getText());
             alertMessage("The book has been Ordered!");
         } else {
             badAlert("Order Info is not correct");
@@ -398,9 +400,10 @@ public class Start extends Application {
                 && !firstName.getText().equals("") && !genre.getText().equals("")
                 && !isbn.getText().equals("") && !price.getText().equals("")
                 && !noCopies.getText().equals("")) {
-            admin.addBook(title.getText(), lastName.getText(), firstName.getText(),
-                    Genre.valueOf(genre.getText().toUpperCase()), isbn.getText(),
-                    Double.parseDouble(price.getText()),
+            admin.addBook(title.getText(), lastName.getText(), 
+                    firstName.getText(), 
+                    Genre.valueOf(genre.getText().toUpperCase()), 
+                    isbn.getText(), Double.parseDouble(price.getText()),
                     Double.parseDouble(noCopies.getText()));
             alertMessage(title.getText() + " has been added to the library");
         } else {
@@ -410,7 +413,7 @@ public class Start extends Application {
 
     public void deleteBook(Admin admin, TextField isbn) {
         if (Search.searchData(isbn.getText(), "ISBN") == true) {
-            alertMessage("ISBN:"+isbn.getText()+"has been deleted");
+            alertMessage("ISBN: "+isbn.getText()+" has been deleted");
             admin.deleteBook(isbn.getText());
         } else {
             badAlert("ISBN not found!");

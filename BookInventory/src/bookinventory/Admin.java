@@ -47,11 +47,12 @@ public class Admin extends User {
     */
     public boolean deleteBook(String searchKey) {
         //Delete entry from ArrayList
+        boolean success = false;
         Search.searchData(searchKey, "ISBN");
         for (int i = 0; i < BookInventory.data.size(); i++) {
             if (BookInventory.data.get(i).getISBN().equals(searchKey)) {
                 Search.searches.remove(0);
-                return true;
+                success = true;
             }
         }
 
@@ -82,7 +83,7 @@ public class Admin extends User {
             System.out.println("Error: " + ex.getMessage());
 
         }
-        return false;
+        return success;
     }
     
     /**
@@ -102,7 +103,7 @@ public class Admin extends User {
     public void editBook(String searchKey, String title, String lastName, 
             String firstName, String genre, String ISBN, String price, 
             String numCopies) {
-//        Search.searchData(searchKey, "ISBN");
+        Search.searchData(searchKey, "ISBN");
         for (int i = 0; i < BookInventory.data.size(); i++) {
             if (searchKey.equals(BookInventory.data.get(i).getISBN())) {
                 BookInventory.data.get(i).setTitle(title);
