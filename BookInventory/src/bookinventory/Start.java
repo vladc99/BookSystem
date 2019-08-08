@@ -25,7 +25,7 @@ import javafx.stage.Stage;
  *
  *
  * This class consists of all the GUI methods that models the front end of our
- * program.
+ * program and starts the program.
  */
 public class Start extends Application {
 
