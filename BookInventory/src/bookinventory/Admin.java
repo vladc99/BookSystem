@@ -52,7 +52,9 @@ public class Admin extends User {
         for (int i = 0; i < BookInventory.data.size(); i++) {
             if (BookInventory.data.get(i).getISBN().equals(searchKey)) {
                 Search.searches.remove(0);
+                BookInventory.data.remove(i);
                 success = true;
+                break;
             }
         }
 

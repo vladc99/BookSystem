@@ -28,32 +28,34 @@ public abstract class Search{
      * searchKey
     */
     public static boolean searchData(String searchKey, String searchType){
-
+        
+        boolean success = false;
+        
         searches.clear();
-
-        if(searchType.equals("Title")){
+        
+        if(searchType.contains("Title")){
             for(int i = 0; i < BookInventory.data.size(); i++){
                 if(BookInventory.data.get(i).getTitle().contains(searchKey)){
                     searches.add(BookInventory.data.get(i));
-                    return true;
+                    success = true;
                 }
             }
         }else if(searchType.equals("ISBN")){
             for(int i = 0; i < BookInventory.data.size(); i++){
                 if(BookInventory.data.get(i).getISBN().equals(searchKey)){
                     searches.add(BookInventory.data.get(i));
-                    return true;
+                    success = true;
                 }
             }
         }else if(searchType.equals("Last Name")){
             for(int i = 0; i < BookInventory.data.size(); i++){
                 if(BookInventory.data.get(i).getLastName().contains(searchKey)){
                     searches.add(BookInventory.data.get(i));
-                    return true;
+                    success = true;
                 }
             }
         }
-        return false;
+        return success;
     }
 
     public static ArrayList<Book> getSearches(){
